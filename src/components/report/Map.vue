@@ -87,7 +87,7 @@ export default {
 
       //不通过后台获取地图数据的方式就是axios.get
       // const ret = await axios.get('http://39.107.97.152:8077/static/map/china.json')
-      const ret = await axios.get('http://localhost:8999//static/map/china.json')
+      const ret = await axios.get('http://localhost:8999/static/map/china.json')
 
 
       // 注册地图数据
@@ -222,104 +222,21 @@ export default {
       this.chartInstance.on('click',arg=>{
         //console.log(arg)
         if(arg.name=='济南'){
-          window.location.href='http://39.107.97.152:8077/#/test/"济南"'
+          window.location.href='http://localhost:8999/#/show/"济南"'
         }
         if(arg.name=='南京'){
-          window.location.href='http://39.107.97.152:8077/#/test/"南京"'
+          window.location.href='http://localhost:8999/#/show/"南京"'
         }
-        // if(arg.name=='苏州'){
-        //   window.location.href='http://39.107.97.152:8077/#/test/"苏州"'
-        // }
+        if(arg.name=='苏州'){
+          window.location.href='http://localhost:8999/#/show/"苏州"'
+        }
         if(arg.name=='昆明'){
-          window.location.href='http://39.107.97.152:8077/#/test/"昆明"'
+          window.location.href='http://localhost:8999/#/show/"昆明"'
         }
         if(arg.name=='西安'){
-          window.location.href='http://39.107.97.152:8077/#/test/"西安"'
+          window.location.href='http://localhost:8999/#/show/"西安"'
         }
-        if(arg.name=='石家庄'){
-          window.location.href='http://39.107.97.152:8077/#/test/"石家庄"'
-        }
-        if(arg.name=='太原'){
-          window.location.href='http://39.107.97.152:8077/#/test/"太原"'
-        }
-        if(arg.name=='呼和浩特'){
-          window.location.href='http://39.107.97.152:8077/#/test/"呼和浩特"'
-        }
-        if(arg.name=='沈阳'){
-          window.location.href='http://39.107.97.152:8077/#/test/"沈阳"'
-        }
-        if(arg.name=='长春'){
-          window.location.href='http://39.107.97.152:8077/#/test/"长春"'
-        }
-        if(arg.name=='哈尔滨'){
-          window.location.href='http://39.107.97.152:8077/#/test/"哈尔滨"'
-        }
-        if(arg.name=='杭州'){
-          window.location.href='http://39.107.97.152:8077/#/test/"杭州"'
-        }
-        if(arg.name=='合肥'){
-          window.location.href='http://39.107.97.152:8077/#/test/"合肥"'
-        }
-        if(arg.name=='乌鲁木齐'){
-          window.location.href='http://39.107.97.152:8077/#/test/"乌鲁木齐"'
-        }
-        if(arg.name=='福州'){
-          window.location.href='http://39.107.97.152:8077/#/test/"福州"'
-        }
-        if(arg.name=='南昌'){
-          window.location.href='http://39.107.97.152:8077/#/test/"南昌"'
-        }
-        if(arg.name=='郑州'){
-          window.location.href='http://39.107.97.152:8077/#/test/"郑州"'
-        }
-        if(arg.name=='武汉'){
-          window.location.href='http://39.107.97.152:8077/#/test/"武汉"'
-        }
-        if(arg.name=='长沙'){
-          window.location.href='http://39.107.97.152:8077/#/test/"长沙"'
-        }
-        if(arg.name=='广州'){
-          window.location.href='http://39.107.97.152:8077/#/test/"广州"'
-        }
-        if(arg.name=='南宁'){
-          window.location.href='http://39.107.97.152:8077/#/test/"南宁"'
-        }
-        if(arg.name=='海口'){
-          window.location.href='http://39.107.97.152:8077/#/test/"海口"'
-        }
-        if(arg.name=='成都'){
-          window.location.href='http://39.107.97.152:8077/#/test/"成都"'
-        }
-        if(arg.name=='贵阳'){
-          window.location.href='http://39.107.97.152:8077/#/test/"贵阳"'
-        }
-        if(arg.name=='拉萨'){
-          window.location.href='http://39.107.97.152:8077/#/test/"拉萨"'
-        }
-        if(arg.name=='兰州'){
-          window.location.href='http://39.107.97.152:8077/#/test/"兰州"'
-        }
-        if(arg.name=='西宁'){
-          window.location.href='http://39.107.97.152:8077/#/test/"西宁"'
-        }
-        if(arg.name=='银川'){
-          window.location.href='http://39.107.97.152:8077/#/test/"银川"'
-        }
-        if(arg.name=='深圳'){
-          window.location.href='http://39.107.97.152:8077/#/test/"深圳"'
-        }
-        if(arg.name=='大连'){
-          window.location.href='http://39.107.97.152:8077/#/test/"大连"'
-        }
-        if(arg.name=='宁波'){
-          window.location.href='http://39.107.97.152:8077/#/test/"宁波"'
-        }
-        if(arg.name=='青岛'){
-          window.location.href='http://39.107.97.152:8077/#/test/"青岛"'
-        }
-        if(arg.name=='厦门'){
-          window.location.href='http://39.107.97.152:8077/#/test/"厦门"'
-        }
+  
       })
 
 
@@ -335,62 +252,17 @@ export default {
                           {
                               "name": "南方城市",
                               "children": [
-                                  // {
-                                  //     "name": "苏州",
-                                  //     "value": [120.619585, 31.299379]
-                                  // },
+                                  {
+                                      "name": "苏州",
+                                      "value": [120.619585, 31.299379]
+                                  },
                                   {
                                       "name": "南京",
                                       "value": [118.767413, 32.041544]
                                   },{
                                       "name": "昆明",
                                       "value": [102.73,25.04]
-                                  },{
-                                      "name": "杭州",
-                                      "value": [120.153576, 30.287459]
-                                  },{ 
-                                      "name": "福州",
-                                      "value": [119.3,26.08]
-                                  },{ 
-                                      "name": "南昌",
-                                      "value": [115.892151, 28.676493]
-                                  },{ 
-                                      "name": "武汉",
-                                      "value": [114.298572, 30.584355]
-                                  },{ 
-                                      "name": "长沙",
-                                      "value": [113,28.21]
-                                  },{ 
-                                      "name": "广州",
-                                      "value": [113.280637, 23.125178]
-                                  },{ 
-                                      "name": "南宁",
-                                      "value": [108.320004,22.82402]
-                                  },{ 
-                                      "name": "海口",
-                                      "value": [110.35,20.02]
-                                  },{ 
-                                      "name": "成都",
-                                      "value": [104.065735,30.659462]
-                                  },{ 
-                                      "name": "贵阳",
-                                      "value": [106.713478, 26.578343]
-                                  },{ 
-                                      "name": "深圳",
-                                      "value": [114.085947, 22.547]
-                                  },{ 
-                                      "name": "厦门",
-                                      "value": [118.1,24.46]
-                                  },{ 
-                                      "name": "拉萨",
-                                      "value": [91.132212,29.660361]
-                                  },{                                  
-                                      "name": "合肥",
-                                      "value": [117.283042, 31.86119]
-                                  },{ 
-                                      "name": "宁波",
-                                      "value": [121.549792, 29.868388]
-                                  },
+                                  }
                                   
                               ]
                           },
@@ -403,45 +275,6 @@ export default {
                                   },{                                  
                                       "name": "西安",
                                       "value": [108.948024,34.263161]
-                                  },{                                  
-                                      "name": "石家庄",
-                                      "value": [114.48,38.03]
-                                  },{                                  
-                                      "name": "太原",
-                                      "value": [112.53,37.87]
-                                  },{                                  
-                                      "name": "呼和浩特",
-                                      "value": [111.670801, 40.818311]
-                                  },{                                  
-                                      "name": "沈阳",
-                                      "value": [123.429096, 41.796767]
-                                  },{                                  
-                                      "name": "长春",
-                                      "value": [125.3245, 43.886841]
-                                  },{                                  
-                                      "name": "哈尔滨",
-                                      "value": [126.63,45.75]
-                                  },{                                  
-                                      "name": "乌鲁木齐",
-                                      "value": [87.617733,43.792818]
-                                  },{ 
-                                      "name": "郑州",
-                                      "value": [113.665412,34.757975]
-                                  },{ 
-                                      "name": "兰州",
-                                      "value": [103.823557,36.058039]
-                                  },{ 
-                                      "name": "西宁",
-                                      "value": [101.778916, 36.623178]
-                                  },{ 
-                                      "name": "银川",
-                                      "value": [106.27,38.47]
-                                  },{ 
-                                      "name": "大连",
-                                      "value": [121.618622, 38.91459]
-                                  },{ 
-                                      "name": "青岛",
-                                      "value": [120.33,36.07]
                                   }
                                   
                               ]

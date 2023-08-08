@@ -48,7 +48,7 @@ const routes = [{
   },
 
   {
-    path: '/test/:city_name',
+    path: '/show/:city_name',
     component: StockPage
   },
   // this.$router.push({

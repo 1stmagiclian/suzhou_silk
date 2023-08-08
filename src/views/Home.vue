@@ -276,9 +276,9 @@ export default {
  
   .screen-right {
     height: 100%;
-    width: 27%;
+    width: 33%;
     #right-top {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -293,7 +293,7 @@ export default {
       // animation: borderAnimation 10s linear infinite;
     }
     #right-bottom {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -309,9 +309,9 @@ export default {
   }
   .screen-left {
     height: 100%;
-    width: 70%;
+    width: 75%;
     #left-top {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -324,13 +324,12 @@ export default {
       height: 57.3%;
       margin-bottom: 10px;
       margin-right: 10px;
-      margin-left: 10px;
       position: relative;
       // animation: borderAnimation 10s linear infinite;
 
     }
     #left-bottom {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -340,10 +339,9 @@ export default {
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       border-bottom-left-radius: 20px;
-      height: 30.2%;
+      height: 30.6%;
       // margin-bottom: 25px;
       margin-right: 10px;
-      margin-left: 10px;
       position: relative;
       // animation: borderAnimation 10s linear infinite;
     }
