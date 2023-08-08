@@ -9,7 +9,7 @@
         <img v-show="theme != 'chalk'" src="~@/assets/images/header_border_light.png" alt="" />
       </div>
       <!-- <span class="logo"> <a :style="titleColor" href="http://39.107.97.152:8007/" title="欢迎访问文化计算实验室" target="_blank">欢迎访问文化计算实验室</a> </span> -->
-      <span class="title">城市软实力可视化平台</span>
+      <span class="title">苏州丝绸可视化网站</span>
       <div class="title-right">
         <!-- <img :src="themeSrc" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题"> -->
         <!-- <img v-show="theme == 'chalk'" src="~@/assets/images/qiehuan_dark.png" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题" />
@@ -22,26 +22,8 @@
 
     <div class="screen-body">    
       <section class="screen-left">
-        <div id="left-top" :class="{ fullscreen: fullScreenStatus.rank }">
-          <!-- 地区销量排行图表 -->
-          <Rank ref="rank"></Rank>
-          <div class="resize">
-            <span @click="changeSize('rank')" :class="['iconfont', fullScreenStatus.rank ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
-          </div>
-        </div>
-
-        <div id="left-bottom" :class="{ fullscreen: fullScreenStatus.hot }">
-          <!-- 地区销量排行图表 -->
-          <Hot ref="hot"></Hot>
-          <div class="resize">
-            <span @click="changeSize('hot')" :class="['iconfont', fullScreenStatus.hot ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="screen-middle">
-        <div id="middle-top" :class="{ fullscreen: fullScreenStatus.map }">
+        
+        <div id="left-top" :class="{ fullscreen: fullScreenStatus.map }">
           <!-- 商家分布图表 -->
           <single-map ref="map"></single-map>
           <div class="resize">
@@ -50,7 +32,7 @@
           </div>
         </div>
 
-        <div id="middle-bottom" :class="{ fullscreen: fullScreenStatus.trend }">
+        <div id="left-bottom" :class="{ fullscreen: fullScreenStatus.trend }">
           <!-- 商家分布图表 -->
           <Trend ref="trend"></Trend>
           <div class="resize">
@@ -61,13 +43,21 @@
       </section>
 
 
+
       <section class="screen-right">
-      
-        <div id="right" :class="{ fullscreen: fullScreenStatus.seller }">
-          <!-- 商家销售金额图表 -->
-          <Seller ref="seller"></Seller>
+        <div id="right-top" :class="{ fullscreen: fullScreenStatus.rank }">
+          <!-- 地区销量排行图表 -->
+          <Rank ref="rank"></Rank>
           <div class="resize">
-            <span @click="changeSize('seller')" :class="['iconfont', fullScreenStatus.seller ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
+            <span @click="changeSize('rank')" :class="['iconfont', fullScreenStatus.rank ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
+          </div>
+        </div>
+
+        <div id="right-bottom" :class="{ fullscreen: fullScreenStatus.hot }">
+          <!-- 地区销量排行图表 -->
+          <Hot ref="hot"></Hot>
+          <div class="resize">
+            <span @click="changeSize('hot')" :class="['iconfont', fullScreenStatus.hot ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
           </div>
         </div>
       </section>
@@ -282,53 +272,12 @@ export default {
   height: 100%;
   display: flex;
   margin-top: 10px;
-  .screen-left {
-    height: 100%;
-    width: 27%;
-    #left-top {
-      border: none;
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
-      border-image-slice: 1;
-      // border-width: 3px;
-      border-style: solid;
-      // border-image-outset: 0cm;
-      margin-bottom: 15px;
-      height: 42%;
-      position: relative;
-    }
 
-    // @keyframes borderAnimation {
-    //   0% {
-    //     border-color: #98e5e9;
-    //     box-shadow: 0 0 10px #98e5e9, 0 0 20px #98e5e9, 0 0 30px #98e5e9;
-    //   }
-    //   50% {
-    //     border-color: #23E5E5;
-    //     box-shadow: 0 0 10px #23E5E5, 0 0 20px #23E5E5, 0 0 30px #23E5E5;
-    //   }
-    //   100% {
-    //     border-color: #0b8de9;
-    //     box-shadow: 0 0 10px #0b8de9, 0 0 20px #0b8de9, 0 0 30px #0b8de9;
-    //   }
-    // }
-
-    #left-bottom {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
-      border-image-slice: 1;
-      border-width: 3px;
-      border-style: solid;
-      border-image-outset: 0cm;
-      height: 44.9%;
-      margin-top: 15px;
-      position: relative;
-      // animation: borderAnimation 10s linear infinite;
-    }
-  }
  
   .screen-right {
     height: 100%;
     width: 27%;
-    #right {
+    #right-top {
       border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
       border-image-slice: 1;
       border-width: 3px;
@@ -338,15 +287,30 @@ export default {
       // border-top-right-radius: 20px;
       // border-bottom-right-radius: 20px;
       // border-bottom-left-radius: 20px;
-      height: 89.3%;
+      height: 45%;
+      margin-bottom: 10px;
+      position: relative;
+      // animation: borderAnimation 10s linear infinite;
+    }
+    #right-bottom {
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
+      border-image-slice: 1;
+      border-width: 3px;
+      border-style: solid;
+      border-image-outset: 0cm;
+      // border-top-left-radius: 20px;
+      // border-top-right-radius: 20px;
+      // border-bottom-right-radius: 20px;
+      // border-bottom-left-radius: 20px;
+      height: 43%;
       position: relative;
       // animation: borderAnimation 10s linear infinite;
     }
   }
-  .screen-middle {
+  .screen-left {
     height: 100%;
-    width: 50%;
-    #middle-top {
+    width: 70%;
+    #left-top {
       border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
       border-image-slice: 1;
       border-width: 3px;
@@ -365,7 +329,7 @@ export default {
       // animation: borderAnimation 10s linear infinite;
 
     }
-    #middle-bottom {
+    #left-bottom {
       border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #23E5E5 100%);
       border-image-slice: 1;
       border-width: 3px;
