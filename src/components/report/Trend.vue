@@ -1,6 +1,6 @@
 <template>
   <div class="com-container">
-    <select v-model="selectedValue" @change="handleSelectChange">
+    <!-- <select v-model="selectedValue" @change="handleSelectChange">
       <option>经济规模</option>
       <option>生态禀赋</option>
       <option>文化资源</option>
@@ -24,7 +24,7 @@
       <option>旅游吸引</option>
       <option>外资吸引</option>
       <option>会展竞争</option>
-    </select>
+    </select> -->
     <div class="com-chart" ref="trendRef"></div>
     <i class="iconfont icon-left" @click="toLeft" :style="themeStyle">&#xe6ef;</i>
     <i class="iconfont icon-right" @click="toRight" :style="themeStyle">&#xe6ed;</i>

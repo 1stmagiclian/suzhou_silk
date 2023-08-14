@@ -1,9 +1,9 @@
 <template>
   <div class="com-container">
-    <select v-model="selectedValue" @change="handleSelectChange">
+    <!-- <select v-model="selectedValue" @change="handleSelectChange">
       <option>2020</option>
       <option>2021</option>
-    </select>
+    </select> -->
     <div class="com-chart" ref="hotRef"></div>
   </div>
 </template>
@@ -89,29 +89,97 @@ export default {
     },
     // 发送请求，获取数据
     async getData() {
-      const { data: res } = await axios.get('http://39.107.97.152:5000/wordcloud',{params:{year:this.selectedValue}})
-      // const res = [
-      //       {
-      //         name: "国防白皮书",
-      //         value: 6500
-      //       },
-      //       {
-      //         name: "创新",
-      //         value: 6000
-      //       },
-      //       {
-      //         name: "民主革命",
-      //         value: 4500
-      //       },
-      //       {
-      //         name: "从严治党",
-      //         value: 1900
-      //       },
-      //       {
-      //         name: "现代化经济体系",
-      //         value: 1800
-      //       },           
-      //     ]
+      // const { data: res } = await axios.get('http://39.107.97.152:5000/wordcloud',{params:{year:this.selectedValue}})
+      const res = [
+            {
+              name: "富贵不断",
+              value: 450
+            },
+            {
+              name: "江山方代",
+              value: 430
+            },
+            {
+              name: "吉祥",
+              value: 420
+            },
+            {
+              name: "福",
+              value: 400
+            },
+            {
+              name: "禄",
+              value: 400
+            },
+            {
+              name: "寿",
+              value: 400
+            },
+            {
+              name: "梅兰竹菊",
+              value: 380
+            },
+            {
+              name: "团花",
+              value: 360
+            },
+            {
+              name: "八吉祥",
+              value: 350
+            },
+            {
+              name: "如意盖",
+              value: 350
+            },
+            {
+              name: "寿桃",
+              value: 350
+            },
+            {
+              name: "云鹤",
+              value: 330
+            },
+            {
+              name: "喜鹊",
+              value: 330
+            },
+            {
+              name: "牡丹",
+              value: 300
+            },
+            {
+              name: "宝剑",
+              value: 280
+            },
+            {
+              name: "书卷",
+              value: 280
+            },
+            {
+              name: "如意",
+              value: 280
+            },
+            {
+              name: "蝴蝶",
+              value: 250
+            },
+            // {
+            //   name: "缠枝花",
+            //   value: 230
+            // },
+            // {
+            //   name: "折枝花",
+            //   value: 230
+            // },
+            // {
+            //   name: "石榴",
+            //   value: 200
+            // },
+            // {
+            //   name: "仕女",
+            //   value: 200
+            // },
+          ]
       this.allData = res
       this.updateChart()
       this.screenAdapter()
