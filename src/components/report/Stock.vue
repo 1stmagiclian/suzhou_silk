@@ -66,10 +66,10 @@ import ImageGallery from '../report/ImageGallery.vue'
           history.back(); // 返回上一页
         },
         goToHome() {
-          window.location.href = 'http://10.156.8.21:8006/#/home'; 
+          window.location.href = 'http://10.156.8.21:8894/files/html/newSystem.html?_ijt=u4vfe8ujgs48lgu2be2qvbafsb'; 
         },
         goToExternalPage() {
-          window.location.href = 'http://10.156.8.21:8894/files/html/newSystem.html?_ijt=u4vfe8ujgs48lgu2be2qvbafsb';
+          window.location.href = 'http://10.156.8.21:8899/files/html/newSystem_classification.html';
         },
     },
   };
@@ -115,7 +115,7 @@ import ImageGallery from '../report/ImageGallery.vue'
     cursor: pointer;
 
     position: fixed;
-    bottom: 60px; /* 调整按钮距离底部的距离 */
+    bottom: 40px; /* 调整按钮距离底部的距离 */
     left: 90%;
     transform: translateX(-50%);
 
@@ -131,7 +131,7 @@ import ImageGallery from '../report/ImageGallery.vue'
     cursor: pointer;
 
     position: fixed;
-    bottom: 60px; /* 调整按钮距离底部的距离 */
+    bottom: 40px; /* 调整按钮距离底部的距离 */
     left: 10%;
     transform: translateX(-50%);
 
@@ -146,7 +146,7 @@ import ImageGallery from '../report/ImageGallery.vue'
     cursor: pointer;
 
     position: fixed;
-    bottom: 60px; /* 调整按钮距离底部的距离 */
+    bottom: 40px; /* 调整按钮距离底部的距离 */
     left: 20%;
     transform: translateX(-50%);
 
