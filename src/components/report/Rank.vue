@@ -1,27 +1,18 @@
 <template>
   <div class="com-container">
-    <select v-model="selectedValue" @change="handleSelectChange">
-      <option>2020</option>
-      <option>2021</option>
-    </select>
-    <div class="com-chart" ref="rankRef"></div>
+    <div class="com-chart" ref="stockRef">
+    </div>
   </div>
-</template>
+</template>   
 
 <script>
-import axios from 'axios'
 import { mapState } from 'vuex'
-
-//散点图大小函数图
-// var sizeFunction = function (x) {
-//     var y = Math.sqrt(x /55) + 0.1;
-//     return y * 80;
-//   };
+import axios from 'axios'
 
 
 export default {
-  // 地区销量排行
-  name: 'Rank',
+  // 库存和销量分析
+  name: 'Stock',
   data() {
     return {
       selectedValue: 2020, // 设置默认选中的值
@@ -29,21 +20,22 @@ export default {
       chartInstance: null,
       // 从服务器中获取的所有数据
       allData: null,
-      // 柱形图 区域缩放起点值
-      startValue: 0,
-      // 柱形图结 区域缩放终点值
-      endValue: 9,
-      // 定时器
-      timerId: null
+      // 当前显示数据的页数
+      currentIndex: 1,
+      // 定时器标识
+      timerId: null,
+      
     }
   },
-  //在组件创建完成之后进行回调函数的注册
+
   created() {
-    // this.$socket.registerCallBack('rankData', this.getData)
+    // this.$socket.registerCallBack('stockData', this.getData)
   },
+
   computed: {
-    ...mapState(['theme'])
+    ...mapState(['theme']),
   },
+
   watch: {
     theme() {
       // 销毁当前的图表
@@ -54,19 +46,13 @@ export default {
       this.screenAdapter()
       // 渲染数据
       this.updateChart()
-    }
+    },
   },
+
+  //用于页面初始化数据
   mounted() {
     this.initChart()
     this.getData()
-
-    //在原来获取数据的位置改为发送数据给服务器！！！！！！！
-    // this.$socket.send({
-    //   action: 'getData',
-    //   socketType: 'rankData',
-    //   chartName: 'rank',
-    //   value: ''
-    // })
 
     window.addEventListener('resize', this.screenAdapter)
     // 主动触发 响应式配置
@@ -76,257 +62,211 @@ export default {
   destroyed() {
     window.removeEventListener('resize', this.screenAdapter)
     clearInterval(this.timerId)
-    //在组件销毁之后，进行回调函数的取消
-    // this.$socket.unRegisterCallBack('rankData')
+    // this.$socket.unRegisterCallBack('stockData')
   },
 
   methods: {
-
-    handleSelectChange() {
-      console.log(this.selectedValue)
-      // 根据下拉框的值发送请求给后端接口，并获取数据
-      if(this.selectedValue){
-        this.screenAdapter()
-        this.getData()
-        // 更新图表
-        this.updateChart()
-      }
-    },
-
-    //散点图颜色随机生成
-    domColor(dataIndex){
-      const Ary=[];
-      for(let k=0;k<20;k++){
-        const r=Math.floor(Math.random()*256);
-        const g=Math.floor(Math.random()*256);
-        const b=Math.floor(Math.random()*256);
-        Ary.push(`rgb(${r},${g},${b})`);
-      }
-      return Ary[dataIndex];
-    },
-
-
-    // sizeFunction(x) {
-    //     var y = Math.sqrt(x / 55) + 0.1;
-    //     return y * 80;
-    // },
     // 初始化图表的方法
     initChart() {
-      this.chartInstance = this.$echarts.init(this.$refs.rankRef, this.theme)
-
+      this.chartInstance = this.$echarts.init(this.$refs.stockRef, this.theme)
       const initOption = {
-
         backgroundColor:"rgb(22, 21, 34, 0.75)",
 
-        title: {
-          text: '▎城市得分散点图',
-          left: 20,
-          top: 20
-        },
+      //   title: {
+      //     text: '▎雷达图',
+      //     left: 20,
+      //     top: 20,
+      //   },
+      //   name: {
+      //       textStyle: {
+      //           color: '#fff',
+      //           fontSize: 16
+      //       },
+      //   },
+      // backgroundColor: 'rgba(0, 0, 0, 0.3)',
 
-        //图标的位置设置
-        grid: {
-          top: '20%',
-          left: '5%',
-          right: '5%',
-          bottom: '5%',
-          // 把x轴和y轴纳入 grid
-          containLabel: true
+      title: {
+        text: '▎丝绸颜色雷达图',
+        left: 20,
+        top: 20,
+        textStyle: {
+          color: '#fff',
+          fontFamily: 'serif',
+          fontSize: 18,
         },
+      },
 
+      name: {
+        textStyle: {
+          color: '#fff',
+          fontSize: 14,
+          fontFamily: 'serif',
+        },
+      },
+              
+        radar: {
+          // shape: 'circle',
+          indicator: [
+            { name: '水墨青', max: 1 },
+            { name: '浅碧绿', max: 1 },
+            { name: '紫罗兰', max: 1 },
+            { name: '古朴紫', max: 1 },
+            { name: '砚墨灰', max: 1 },
+            { name: '秋叶橙', max: 1 },
+            { name: '宫廷红', max: 1 },
+            { name: '清雅蓝', max: 1 },
+          ],
+        
+          //雷达图背景的颜色，在这儿随便设置了一个颜色，完全不透明度为0，就实现了透明背景
+
+          axisLine: { //指向外圈文本的分隔线样式
+            lineStyle: {
+                // color: '#013A3F'
+                width:0.1
+            }
+          },
+          splitArea: {
+              show: false,
+              areaStyle: {
+                  color: "rgba(255,0,0,0)", // 图表背景的颜色
+              },
+          },
+          splitLine: {
+              show: true,
+              lineStyle: {
+                  width: 1,  // 分隔线线宽
+                  color: "#47EDFC", // 设置网格的颜色【分隔线颜色】
+              },
+          },
+
+
+      },
+
+        //todo：格式化输出样式
         tooltip: {
           show: true,
-          trigger:'item',//item主要用在散点图上面
+          trigger:'item',
+          position: ['75%','18%'],
+          // backgroundColor:"#",
+          textStyle:{
+            // align:'left'
+          },
           formatter:(params) => {  // params就是数据，这里可以打印一下看看
               // return 出去什么，鼠标移入就显示什么,marker就是提示前面蓝色的圆点
-              return `${params.data[2]}</br>${params.marker}支撑性得分:${params.data[0]}</br>${params.marker}效应性得分:${params.data[1]}</br>${params.marker}常住人口:${params.data[3]}`
-          }
-
-        },
-        //让横纵坐标均显示数值，所以不适用'category'，而使用'value'
-        xAxis: {
-          axisLine: {
-              lineStyle: {
-                  color: "#fff",
+              return `城市名：&#8194&#8194&#8194${params.data['name']}&#8194&#8194&#8194</br>
+                      ${params.marker}水墨青: ${params.data['value'][0]} </br></br>
+                      ${params.marker}浅碧绿: ${params.data['value'][1]} </br></br>
+                      ${params.marker}紫罗兰: ${params.data['value'][2]} </br></br>
+                      ${params.marker}古朴紫: ${params.data['value'][3]} </br></br>
+                      ${params.marker}砚墨灰: ${params.data['value'][4]} </br></br>
+                      ${params.marker}秋叶橙: ${params.data['value'][5]} </br></br>
+                      ${params.marker}宫廷红: ${params.data['value'][6]} </br></br>
+                      ${params.marker}清雅蓝: ${params.data['value'][7]} </br></br>
+                      `
               }
-          },
-          name:"支撑性得分",
-          nameGap: 21,
-          nameLocation: 'middle',
-          type: 'value',
-          scale: true
-        },
-        yAxis: {
-          axisLine: {
-              lineStyle: {
-                  color: "#fff",
-              }
-          },
-          color:"white",
-          name:"效应性得分",
-          nameGap: 18,
-          nameLocation: 'middle',
-          value: 'value',
-          scale: true
         },
 
-        //对展示的数据进行样式设置
-        series: [
+        //雷达图数据样式图
+        series:[
           {
-            
-            type: 'scatter',
-            label: {
-              formatter: '{@value}',
-              show: true,
-              position: 'right',
-              color: 'white',
-              rotate: 30
-            }
+            type:'radar',
+            areaStyle: {
+              color: "rgba(71,237,252,.3)" 
+            },
+            lineStyle: {
+              color: "#47EDFC",
+              // 阴影折线宽度
+              width: 5
+            },
           }
         ]
+        
       }
-
       this.chartInstance.setOption(initOption)
 
-      // 鼠标经过关闭 动画效果
       this.chartInstance.on('mouseover', () => {
         clearInterval(this.timerId)
       })
-      // 鼠标离开 开启动画效果
-      this.chartInstance.on('mouseout', () => {
-        this.startInterval()
-      })
+      this.chartInstance.on('mouseout', this.startInterval)
     },
+
+
 
     // 发送请求，获取数据
     async getData() {
-      // const { data: res } = await this.$http.get('/rank')
 
+      console.log(this.$route.params.city_name)
+      // const { data: res } = await axios.get('http://127.0.0.1:5000/radar',{params:{city_name:this.$route.params.city_name,year:this.selectedValue}})
+      // console.log(data)
 
-      // const res = [
-      //       [2.92,5.00,'石家庄',11235086],[3.25,5.00,'太原',5304061],[3.02,3.32,'呼和浩特',3446100],
-      //       [4.24,4.56,'沈阳',9070093],[3.78,4.43,'长春',9066906],[5.16,4.34,'哈尔滨',10009854],
-      //       [7.53,6.22,'南京',9314685],[9.05,6.71,'杭州',11936010],[4.23,4.45,'合肥',9369881],
-      //       [4.30,4.61,'福州',8291268],[4.06,5.17,'南昌',6255007],[4.75,6.13,'济南',9202432],
-      //       [4.50,5.84,'郑州',12600574],[7.09,6.89,'武汉',12326518],[5.85,5.83,'长沙',10047914],
-      //       [8.08,5.50,'苏州',12748262],[4.75,6.13,'济南',9202432],
-      // ]
-      const { data: res } = await axios.get('http://39.107.97.152:5000/scatter',{params:{year:this.selectedValue}})
-      // const { data: res } = await axios.get('http://127.0.0.1:5000/scatter',{params:{year:this.selectedValue}})
-
+      
+      //后端返回数据注意格式
+      const res=[{"name":"苏州",
+                  "value":['0.32','0.66','0.8','0.35','0.56','0.69','0.38','0.7'],
+                  },            
+      ]
 
       this.allData = res
 
       this.updateChart()
-      // 开始自动切换
-      this.startInterval()
     },
 
-    
+
+
     // 更新图表配置项
     updateChart() {
-      
-      console.log(this.allData)
-
       const dataOption = {
-      
-        dataZoom: {
-          // 区域缩放组件
-          show: false,
-          startValue: this.startValue,
-          endValue: this.endValue
-        },
+        // tooltip: {
+        //   // 这里为item 可以为内部的数据开启 单独的 tooltip
+        //   trigger: 'item',
+        // },
         series: [
           {
-            data: this.allData,
-            // color:'#33ffff',
-            //散点图随机颜色生成
-            itemStyle:{
-                color:(e)=>{
-                  console.log("color--",e)
-                  return this.domColor(e.dataIndex)
-                }
-                // color:'#33ffff'
-            }
-        //     symbol:
-        // 'path://M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905 c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478 c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014 C52.216,18.553,51.97,16.611,51.911,16.242z',
-            // symbolSize:this.sizeFunction(val[2]),
-            
+            data:this.allData
           }
         ]
       }
+
       this.chartInstance.setOption(dataOption)
+
+      // 开启定时切换
+      this.startInterval()
     },
 
 
-    // 根据图标容器的宽度 计算各属性、标签、元素的大小
+    // 不同分辨率的响应式
     screenAdapter() {
-      const titleFontSzie = (this.$refs.rankRef.offsetWidth / 100) * 5.6
+      const titleFontSize = (this.$refs.stockRef.offsetWidth / 100) * 3.6
 
       const adapterOption = {
-        title: {  
+        title: {
           textStyle: {
-            fontSize: 25
-          }
+            fontSize: titleFontSize,
+          },
         },
         series: [
           {
-            data: this.allData,
-            barWidth: titleFontSzie,
+            barWidth: titleFontSize,
             itemStyle: {
-              // barBorderRadius: [titleFontSzie / 2, titleFontSzie / 2, 0, 0],
-              // color:(e)=>{
-              //     console.log("color--",e)
-              //     this.domColor(e.dataIndex)
-              // }
-            },
-            symbolSize: function (data) {
-              //调节大小
-              // return Math.sqrt(data[3] / 15000) + 0.1 * 80;
-              // return data[3]*(titleFontSzie/12000000)
-              return (titleFontSzie*0.5)
-            },
+              barBorderRadius: [titleFontSize / 2, titleFontSize / 2, 0, 0]
+            }
           }
         ]
       }
       this.chartInstance.setOption(adapterOption)
       this.chartInstance.resize()
     },
-
-    // 改变柱形图 区域缩放起始与终点值的函数
+    // 定时器不断切换当前页数
     startInterval() {
-      // 如果存在则关闭
       this.timerId && clearInterval(this.timerId)
 
       this.timerId = setInterval(() => {
-        this.startValue++
-        this.endValue++
-        if (this.endValue > this.allData.length - 1) {
-          this.startValue = 0
-          this.endValue = 9
-        }
+        this.currentIndex++
+        if (this.currentIndex > 2) this.currentIndex = 1
+        // 在更新完数据后，需要更新页面
         this.updateChart()
-      }, 20000)
-    }
-  }
+      }, 5000)
+    },
+  },
 }
 </script>
-
-<style lang="less" scoped>
-select {
-  /* 调整下拉框的样式 */
-  z-index: 1;
-  width: 70px; /* 设置宽度 */
-  height: 30px; /* 设置高度 */
-  padding: 5px; /* 设置内边距 */
-  font-size: 14px; /* 设置字体大小 */
-  border: 1px solid #ccc; /* 设置边框样式 */
-  border-radius: 4px; /* 设置边框圆角 */
-  position: absolute; /* 设置绝对定位 */
-  top: 20px; /* 设置相对于父容器的顶部偏移量 */
-  right: 60px; /* 设置相对于父容器的右侧偏移量 */
-  
-  // color: black; /* 设置字体颜色 */
-  background-color: #23E5E5; /* 设置背景色 */
-}
-</style>
