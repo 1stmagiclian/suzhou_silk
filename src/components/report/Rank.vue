@@ -165,7 +165,8 @@ export default {
 
       const initOption = {
   backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
-
+  animationDurationUpdate: 1500,
+  animationEasingUpdate: 'quinticInOut',
   title: {
     text: '▎苏州丝绸古风雷达图', // Adjusted title
     left: 20,

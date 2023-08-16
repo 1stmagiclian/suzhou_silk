@@ -73,13 +73,20 @@ export default {
     // 初始化图表的方法
     initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.hotRef, this.theme)
-
       const initOption = {
-        backgroundColor:"rgb(22, 21, 34, 0.9)",
+        backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
+        animationDurationUpdate: 1800,
+        animationEasingUpdate: 'quinticInOut',
         title: {
-          text: '▎指标词云分析',
+          text: '▎苏绣词云分析',
           left: 20,
           top: 20,
+          textStyle: {
+            // color: '#fff',
+            color: '#6B4226', 
+            fontFamily: 'serif',
+            fontSize: 23,
+          },
         },
         tooltip: {
           show: true,
@@ -214,10 +221,19 @@ export default {
                 //     ')';
                 // }
                 color:function(params){
-                    if(params.value >=300 && params.value <=400){
+                    if(params.value >=250 && params.value <300){
                       return "#a304d3";
-                    }else if(params.value >=400 && params.value<=450 ){
-                      return "#23E5E5";
+                    }else if(params.value >=300 && params.value<350 ){
+                      return "#8E44AD";
+                    }
+                    else if(params.value >=350 && params.value<400 ){
+                      return "#34495E";
+                    }
+                    else if(params.value >=400 && params.value<450 ){
+                      return "#BDC3C7";
+                    }
+                      else if(params.value >=450 && params.value<500 ){
+                      return "#2980B9";
                     }
                     return "#2004d3";
                   }

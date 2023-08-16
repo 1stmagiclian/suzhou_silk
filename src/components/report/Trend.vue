@@ -97,14 +97,20 @@ export default {
 
       const initOption = {
 
-        backgroundColor:"rgb(22, 21, 34, 0.75)",
+        backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
         title: {
           text: '▎纹样演化史',
           left: 20,
-          top: 20
+          top: 20,
+          textStyle: {
+            // color: '#fff',
+            color: '#6B4226', 
+            fontFamily: 'serif',
+            fontSize: 23,
+          },
         },
         tooltip: {},
-        animationDurationUpdate: 1500,
+        animationDurationUpdate: 1800,
         animationEasingUpdate: 'quinticInOut',
         series: [
           {
