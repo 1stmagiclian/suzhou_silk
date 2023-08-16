@@ -7,6 +7,9 @@
           <span>{{ currentPage }} / {{ totalPages }}</span>
           <button @click="changePage(1)" :disabled="currentPage === totalPages" class="pagination-button">下一页</button>
         </div>
+        <button @click="goBack" class="return-button">返回主页</button> <!-- 新添加的返回按钮 -->
+        <button @click="goToHome" class="button">检索平台</button>
+        <button @click="goToExternalPage" class="button2">标注平台</button>
       </div>
     </div>
   </template>
@@ -47,17 +50,26 @@ import ImageGallery from '../report/ImageGallery.vue'
     },
     computed: {
         totalPages() {
-        return Math.ceil(this.imageArray.length / this.perPage);
+          return Math.ceil(this.imageArray.length / this.perPage);
         },
         visibleImages() {
-        const startIndex = (this.currentPage - 1) * this.perPage;
-        const endIndex = startIndex + this.perPage;
-        return this.imageArray.slice(startIndex, endIndex);
+          const startIndex = (this.currentPage - 1) * this.perPage;
+          const endIndex = startIndex + this.perPage;
+          return this.imageArray.slice(startIndex, endIndex);
         },
     },
     methods: {
         changePage(change) {
-        this.currentPage += change;
+          this.currentPage += change;
+        },
+        goBack() {
+          history.back(); // 返回上一页
+        },
+        goToHome() {
+          window.location.href = 'http://10.156.8.21:8894/files/html/newSystem.html?_ijt=u4vfe8ujgs48lgu2be2qvbafsb'; 
+        },
+        goToExternalPage() {
+          window.location.href = 'http://10.156.8.21:8899/files/html/newSystem_classification.html';
         },
     },
   };
@@ -83,18 +95,65 @@ import ImageGallery from '../report/ImageGallery.vue'
     margin-bottom: 100px;
     }
 
-.pagination-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 5px; /* 调整按钮之间的水平间距 */
-}
+  .pagination-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px; /* 调整按钮之间的水平间距 */
+  }
 
-.pagination-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+  .return-button{
+
+    padding: 10px 20px;
+    background-color: #e97815;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    position: fixed;
+    bottom: 40px; /* 调整按钮距离底部的距离 */
+    left: 90%;
+    transform: translateX(-50%);
+
+  }
+
+  .button{
+
+    padding: 10px 20px;
+    background-color: #e97815;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    position: fixed;
+    bottom: 40px; /* 调整按钮距离底部的距离 */
+    left: 10%;
+    transform: translateX(-50%);
+
+  }
+  .button2{
+
+    padding: 10px 20px;
+    background-color: #e97815;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    position: fixed;
+    bottom: 40px; /* 调整按钮距离底部的距离 */
+    left: 20%;
+    transform: translateX(-50%);
+
+  }
+
+  .pagination-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 </style>
