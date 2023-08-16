@@ -9,7 +9,7 @@
         <img v-show="theme != 'chalk'" src="~@/assets/images/header_border_light.png" alt="" />
       </div>
       <!-- <span class="logo"> <a :style="titleColor" href="http://39.107.97.152:8007/" title="欢迎访问文化计算实验室" target="_blank">欢迎访问文化计算实验室</a> </span> -->
-      <span class="title">苏州丝绸可视化网站</span>
+      <span class="title">苏州丝绸可视化平台</span>
       <div class="title-right">
         <!-- <img :src="themeSrc" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题"> -->
         <!-- <img v-show="theme == 'chalk'" src="~@/assets/images/qiehuan_dark.png" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题" />
@@ -232,6 +232,8 @@ export default {
   }
   .title {
     position: absolute;
+    font-family: serif;
+    color: #fff;
     left: 50%;
     top: 50%;
     font-size: 30px;

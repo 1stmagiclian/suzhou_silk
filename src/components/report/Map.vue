@@ -97,97 +97,149 @@ export default {
 
       // 初始化配置项
       const initOption = {
-        backgroundColor:"rgb(22, 21, 34, 0.75)",
-        // backgroundColor:{
-        //   type: 'radial',
-        //   x: 0.5,
-        //   y: 0.5,
-        //   r: 0.5,
-        //   colorStops: [{
-        //       offset: 0, color: 'rgb(0, 0, 255)' // 0% 处的颜色
-        //   }, {
-        //       offset: 1, color: 'rgb(22, 21, 34)' // 100% 处的颜色
-        //   }],
-        //   global: false // 缺省为 false
-        // },  
+        // backgroundColor:"rgb(22, 21, 34, 0.75)",
+        backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
+
+
 
         title: {
           text: '▎城市分布',
           left: 20,
           top: 20,
+          textStyle: {
+            // color: '#fff',
+            color: '#6B4226', 
+            fontFamily: 'serif',
+            fontSize: 23,
+          },
         },
 
         
 
+        // geo: {  
+        //   type: 'map',
+        //   map: 'china',
+        //   top: '5%',
+        //   bottom: '5%',
+        //   //允许拖动及缩放
+        //   roam: true,
+
+
+        //   // zoom: 1.1, //默认缩放比例61
+        //   itemStyle: {         
+        //     // normal: {
+        //     //   areaColor: '#01215c',
+        //     //   borderWidth: 2,//设置外层边框
+        //     //   borderColor:'#9ffcff',
+        //     // },
+        //     // areaColor:{
+        //     //   image:img,
+        //     //   repeat:'no-repeat',
+        //     // },
+
+        //     areaColor: {
+        //       type: "radial",
+        //       x: 0.5,
+        //       y: 0.5,
+        //       r: 0.8,
+        //       colorStops: [
+        //         {
+        //           offset: 0,
+        //           color: "rgba(147, 235, 248, 1)", // 0% 处的颜色
+        //         },
+        //         {
+        //           offset: 1,
+        //           color: "rgba(2, 99, 206, 1)", // 100% 处的颜色
+        //         },
+        //       ],
+        //       globalCoord: false, // 缺省为 false
+        //     },
+
+        //     // borderWidth: 1,//设置外层边框
+        //     // borderColor:'#9ffcff',
+        //     // shadowColor: "#9ffcff", // 阴影颜色
+        //     shadowOffsetX: 5, // 阴影水平方向上的偏移距离
+        //     shadowOffsetY: 10, // 阴影垂直方向上的偏移距离
+        //     shadowBlur: 10, // 文字块的背景阴影长度
+
+        //     borderWidth: 1, // 边框大小
+        //     borderColor: "rgba(104, 152, 190, 1)", // 边框样式
+        //     shadowColor: "rgba(128, 217, 248, 1)", // 阴影颜色
+
+        //     emphasis: {
+        //       label: {
+        //         color: "#ffffff",
+        //       },
+        //       itemStyle: {
+        //         areaColor: "#a5d4fe",
+        //       },
+        //     },
+
+
+        //   },
+
+         
+        //   label: {
+        //     show: true,
+        //     color: 'white',
+        //     formatter: `{a}`,
+        //   },
+        // },
+        
         geo: {  
           type: 'map',
           map: 'china',
           top: '5%',
           bottom: '5%',
-          //允许拖动及缩放
           roam: true,
-
-
-          // zoom: 1.1, //默认缩放比例61
+          label: {
+            show: true,
+            color: 'black', // 使用黑色字体
+            fontWeight: 'bold', // 加粗字体
+            // fontSize: 16,
+            formatter: '{a}', // 显示区域名称
+          },
           itemStyle: {         
-            // normal: {
-            //   areaColor: '#01215c',
-            //   borderWidth: 2,//设置外层边框
-            //   borderColor:'#9ffcff',
-            // },
-            // areaColor:{
-            //   image:img,
-            //   repeat:'no-repeat',
-            // },
-
             areaColor: {
-              type: "radial",
+              type: 'radial',
               x: 0.5,
               y: 0.5,
               r: 0.8,
               colorStops: [
                 {
                   offset: 0,
-                  color: "rgba(147, 235, 248, 1)", // 0% 处的颜色
+                  color: 'rgba(255, 240, 200, 1)', // 淡黄色作为底色
                 },
                 {
                   offset: 1,
-                  color: "rgba(2, 99, 206, 1)", // 100% 处的颜色
+                  color: 'rgba(255, 210, 90, 1)', // 淡橙色作为顶色
                 },
               ],
-              globalCoord: false, // 缺省为 false
+              globalCoord: false,
             },
-
-            // borderWidth: 1,//设置外层边框
-            // borderColor:'#9ffcff',
-            // shadowColor: "#9ffcff", // 阴影颜色
-            shadowOffsetX: 5, // 阴影水平方向上的偏移距离
-            shadowOffsetY: 10, // 阴影垂直方向上的偏移距离
-            shadowBlur: 10, // 文字块的背景阴影长度
-
-            borderWidth: 1, // 边框大小
-            borderColor: "rgba(104, 152, 190, 1)", // 边框样式
-            shadowColor: "rgba(128, 217, 248, 1)", // 阴影颜色
-
+            borderWidth: 1,
+            borderColor: 'rgba(160, 120, 50, 1)', // 使用棕色边框
             emphasis: {
               label: {
-                color: "#ffffff",
+                color: 'black', // 加强文字对比度
               },
               itemStyle: {
-                areaColor: "#a5d4fe",
+                areaColor: 'rgba(230, 180, 90, 1)', // 强调区域使用淡棕色
               },
             },
-
-
           },
-
-         
-          label: {
-            show: true,
-            color: 'white',
-            formatter: `{a}`,
+          emphasis: {
+            label: {
+              show: true,
+              color: 'black',
+              fontWeight: 'bold',
+            },
+            itemStyle: {
+              areaColor: 'rgba(230, 180, 90, 1)',
+            },
           },
-        },
+        }
+
       }
       this.chartInstance.setOption(initOption)
 
@@ -256,28 +308,28 @@ export default {
                                       "name": "苏州",
                                       "value": [120.619585, 31.299379]
                                   },
-                                  {
-                                      "name": "南京",
-                                      "value": [118.767413, 32.041544]
-                                  },{
-                                      "name": "昆明",
-                                      "value": [102.73,25.04]
-                                  }
+                                  // {
+                                  //     "name": "南京",
+                                  //     "value": [118.767413, 32.041544]
+                                  // },{
+                                  //     "name": "昆明",
+                                  //     "value": [102.73,25.04]
+                                  // }
                                   
                               ]
                           },
                           {
                               // "name": "北方城市",
-                              "children": [
-                                  {
-                                      "name": "济南",
-                                      "value": [117,36.65]
-                                  },{                                  
-                                      "name": "西安",
-                                      "value": [108.948024,34.263161]
-                                  }
+                              // "children": [
+                              //     {
+                              //         "name": "济南",
+                              //         "value": [117,36.65]
+                              //     },{                                  
+                              //         "name": "西安",
+                              //         "value": [108.948024,34.263161]
+                              //     }
                                   
-                              ]
+                              // ]
                           }
                       ]
 
