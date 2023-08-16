@@ -1,33 +1,8 @@
 <template>
   <div class="com-container">
-    <!-- <select v-model="selectedValue" @change="handleSelectChange">
-      <option>经济规模</option>
-      <option>生态禀赋</option>
-      <option>文化资源</option>
-      <option>政策地位</option>
-      <option>交通规模</option>
-      <option>创新能力</option>
-      <option>基本保障</option>
-      <option>生活水平</option>
-      <option>主流评价</option>
-      <option>教育服务</option>
-      <option>医疗服务</option>
-      <option>文化服务</option>
-      <option>主流媒体</option>
-      <option>网络接入</option>
-      <option>舆情干预</option>
-      <option>媒体影响</option>
-      <option>群体情绪</option>
-      <option>城市标签</option>
-      <option>就业吸引</option>
-      <option>就学吸引</option>
-      <option>旅游吸引</option>
-      <option>外资吸引</option>
-      <option>会展竞争</option>
-    </select> -->
     <div class="com-chart" ref="trendRef"></div>
-    <i class="iconfont icon-left" @click="toLeft" :style="themeStyle">&#xe6ef;</i>
-    <i class="iconfont icon-right" @click="toRight" :style="themeStyle">&#xe6ed;</i>
+    <!-- <i class="iconfont icon-left" @click="toLeft" :style="themeStyle">&#xe6ef;</i> -->
+    <!-- <i class="iconfont icon-right" @click="toRight" :style="themeStyle">&#xe6ed;</i> -->
     <span class="cate-name" :style="themeStyle">{{ cateName }}</span>
   </div>
 </template>
@@ -117,87 +92,115 @@ export default {
       this.updateChart()
     },
     // 初始化图表的方法
-    initChart() {
+    initChart() { 
       this.chartInstance = this.$echarts.init(this.$refs.trendRef, this.theme)
 
       const initOption = {
 
         backgroundColor:"rgb(22, 21, 34, 0.75)",
-
         title: {
-          text: '▎城市软实力数据指标分析',
+          text: '▎纹样演化史',
           left: 20,
           top: 20
         },
-        grid: {
-          top: '29%',
-          left: '5%',
-          right: '5%',
-          bottom: '5%',
-          // 把x轴和y轴纳入 grid
-          containLabel: true
-        },
-        tooltip: {
-          trigger:'axis',
-          show: true,
-          axisPointer: {
-            type: 'cross',
-            crossStyle: {
-              color: '#999'
-            }
-          } 
-        },
-        // legend: {
-        //   data: ['data', 'rank']
-        // },
-        xAxis: {
-          type: 'category',
-          axisPointer: {
-            type: 'shadow'
-          },
-          axisLabel: {
-            interval: 0, // 横坐标不间隔显示
-          },
-        },
-        
-        // yAxis: {
-        //   value: 'value'
-        // },
-        yAxis: [
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [
           {
-            type: 'value',
-            name: 'data',
-            min: 0,
-            max: 100,
-            interval: 10,
-            axisLabel: {
-              formatter: '{value} '
-            }
-          },
-          {
-            type: 'value',
-            name: 'rank',
-            inverse: true,
-            min: 1,
-            max: 33,
-            interval: 5,
-            axisLabel: {
-              formatter: '第{value} 名'
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 50,
+            roam: true,
+            label: {
+              show: true
+            },
+            edgeSymbol: ['circle', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            edgeLabel: {
+              fontSize: 20
+            },
+            data: [
+              {
+                name: '纹样1',
+                x: 300,
+                y: 100
+              },
+              {
+                name: '纹样2',
+                x: 400,
+                y: 100
+              },
+              {
+                name: '纹样3',
+                x: 500,
+                y: 100
+              },
+              {
+                name: '纹样4',
+                x: 600,
+                y: 100
+              }
+            ],
+            links: [
+              // {
+              //   source: 0,
+              //   target: 1,
+              //   symbolSize: [5, 20],
+              //   label: {
+              //     show: true
+              //   },
+              //   lineStyle: {
+              //     width: 5,
+              //     curveness: 0.2
+              //   }
+              // },
+              // {
+              //   source: 'Node 2',
+              //   target: 'Node 1',
+              //   label: {
+              //     show: true
+              //   },
+              //   lineStyle: {
+              //     curveness: 0.2
+              //   }
+              // },
+              {
+                source: '纹样1',
+                target: '纹样2'
+              },
+              {
+                source: '纹样2',
+                target: '纹样3'
+              },
+              {
+                source: '纹样3',
+                target: '纹样4'
+              },
+            ],
+            lineStyle: {
+              opacity: 0.9,
+              width: 2,
+              curveness: 0
             }
           }
-        ],
-
+        ]
       }
       this.chartInstance.setOption(initOption)
-
-      // 鼠标经过关闭 动画效果
-      this.chartInstance.on('mouseover', () => {
-        clearInterval(this.timerId)
-      })
-      // 鼠标离开 开启动画效果
-      this.chartInstance.on('mouseout', () => {
-        this.startInterval()
-      })
+      this.chartInstance.on('click', function(params) {
+        if (params.name === '纹样1') {window.open('www.baidu1.com')}
+        if (params.name === '纹样2') {window.open('www.baidu2.com')}
+        if (params.name === '纹样3') {window.open('www.baidu3.com')}
+        if (params.name === '纹样4') {window.open('www.baidu4.com')}
+      });
+      // // 鼠标经过关闭 动画效果
+      // this.chartInstance.on('mouseover', () => {
+      //   clearInterval(this.timerId)
+      // })
+      // // 鼠标离开 开启动画效果
+      // this.chartInstance.on('mouseout', () => {
+      //   this.startInterval()
+      // })
     },
     // 发送请求，获取数据
     async getData() {
@@ -349,7 +352,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<!-- <style lang="less" scoped>
 .com-container {
   i {
     z-index: 999;
@@ -388,4 +391,4 @@ select {
   // color: black; /* 设置字体颜色 */
   background-color: #23E5E5; /* 设置背景色 */
 }
-</style>
+</style> -->
