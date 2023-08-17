@@ -1,7 +1,7 @@
 <template>
   <div class="com-container" @dblclick="chinaMap">
-    <div class="com-chart" ref="mapRef"></div>
-  </div>
+      <div class="com-chart" ref="mapRef"></div>
+    </div>
 </template>
 
 <script>
@@ -9,8 +9,6 @@ import { getProvinceMapInfo } from '@/utils/map_utils'//中文城市名转成拼
 import { mapState } from 'vuex'
 import axios from 'axios'
 
-let img =document.createElement('img')
-img.src=require('@/assets/images/map_bg.png')
 
 export default {
   name: 'Map',
@@ -45,10 +43,6 @@ export default {
   },
   created() {
     this.getData()
-    // this.axiosInstance = axios.create({
-    //   baseURL: 'http://101.34.160.195:9997',
-    // })
-    // this.$socket.registerCallBack('mapData', this.getData)
   },
 
 
@@ -56,12 +50,6 @@ export default {
   mounted() {
     this.initChart()
     this.getData()
-    // this.$socket.send({
-    //   action: 'getData',
-    //   socketType: 'mapData',
-    //   chartName: 'map',
-    //   value: '',
-    // })
     window.addEventListener('resize', this.screenAdapter)
     // 主动触发 响应式配置
     this.screenAdapter()
@@ -114,78 +102,6 @@ export default {
           },
         },
 
-        
-
-        // geo: {  
-        //   type: 'map',
-        //   map: 'china',
-        //   top: '5%',
-        //   bottom: '5%',
-        //   //允许拖动及缩放
-        //   roam: true,
-
-
-        //   // zoom: 1.1, //默认缩放比例61
-        //   itemStyle: {         
-        //     // normal: {
-        //     //   areaColor: '#01215c',
-        //     //   borderWidth: 2,//设置外层边框
-        //     //   borderColor:'#9ffcff',
-        //     // },
-        //     // areaColor:{
-        //     //   image:img,
-        //     //   repeat:'no-repeat',
-        //     // },
-
-        //     areaColor: {
-        //       type: "radial",
-        //       x: 0.5,
-        //       y: 0.5,
-        //       r: 0.8,
-        //       colorStops: [
-        //         {
-        //           offset: 0,
-        //           color: "rgba(147, 235, 248, 1)", // 0% 处的颜色
-        //         },
-        //         {
-        //           offset: 1,
-        //           color: "rgba(2, 99, 206, 1)", // 100% 处的颜色
-        //         },
-        //       ],
-        //       globalCoord: false, // 缺省为 false
-        //     },
-
-        //     // borderWidth: 1,//设置外层边框
-        //     // borderColor:'#9ffcff',
-        //     // shadowColor: "#9ffcff", // 阴影颜色
-        //     shadowOffsetX: 5, // 阴影水平方向上的偏移距离
-        //     shadowOffsetY: 10, // 阴影垂直方向上的偏移距离
-        //     shadowBlur: 10, // 文字块的背景阴影长度
-
-        //     borderWidth: 1, // 边框大小
-        //     borderColor: "rgba(104, 152, 190, 1)", // 边框样式
-        //     shadowColor: "rgba(128, 217, 248, 1)", // 阴影颜色
-
-        //     emphasis: {
-        //       label: {
-        //         color: "#ffffff",
-        //       },
-        //       itemStyle: {
-        //         areaColor: "#a5d4fe",
-        //       },
-        //     },
-
-
-        //   },
-
-         
-        //   label: {
-        //     show: true,
-        //     color: 'white',
-        //     formatter: `{a}`,
-        //   },
-        // },
-        
         geo: {  
           type: 'map',
           map: 'china',
