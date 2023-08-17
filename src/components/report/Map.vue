@@ -1,5 +1,9 @@
 <template>
-  <div class="com-container" @dblclick="chinaMap">
+    <div v-if="!showMap" class="start-image-container">
+      <img class="start-image" src="../../assets/images/silk.jpg" />
+      <button class="start-button" @click="enterMap">进入地图</button>
+    </div>
+    <div v-else class="com-container" @dblclick="chinaMap">
       <div class="com-chart" ref="mapRef"></div>
     </div>
 </template>
@@ -14,6 +18,7 @@ export default {
   name: 'Map',
   data() {
     return {
+      showMap: false,
       // axios实例对象
       axiosInstance: null,
       // 图表的实例对象
@@ -56,11 +61,15 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.screenAdapter)
-    // this.$socket.unRegisterCallBack('stockData')
   },
 
 
   methods: {
+    
+    enterMap() {
+      // 初始化地图并设置 showMap 为 true，确保地图容器能够正常渲染
+      this.showMap = true;
+    },
     // 初始化图表的方法
     async initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.mapRef, this.theme)
@@ -77,7 +86,6 @@ export default {
       const initOption = {
         // backgroundColor:"rgb(22, 21, 34, 0.75)",
         backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
-
 
 
         title: {
@@ -335,4 +343,28 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.start-image-container {
+  text-align: center;
+  position: relative; /* 添加相对定位 */
+}
+.start-image {
+  max-width: 85%;
+  height: 0 auto;
+  display: block;
+  margin: 10 auto;
+  margin-left: 50px;
+}
+.start-button {
+  position: absolute; /* 绝对定位 */
+  top: 20%; /* 将按钮垂直居中 */
+  left: 95%; /* 将按钮水平居中 */
+  transform: translate(-50%, -50%); /* 水平和垂直都居中 */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
