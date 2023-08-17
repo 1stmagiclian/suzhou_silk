@@ -64,16 +64,6 @@ export default {
     // 初始化图表的方法
     async initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.mapRef, this.theme)
-      // 获取中国地图的矢量数据： 可以通过发送网络请求获取,static/map/china.json 的数据
-      // 由于配置了基础路径，所以不能直接 this.$http.get 来请求 static下的资源
-
-      // if (!this.chinaMapData) {
-      //   const { data: res } = await this.$http.get('/map/china')
-      //   this.chinaMapData = res
-      // }
-
-
-      //不通过后台获取地图数据的方式就是axios.get
       // const ret = await axios.get('http://39.107.97.152:8077/static/map/china.json')
       const ret = await axios.get('http://localhost:8999/static/map/china.json')
 
