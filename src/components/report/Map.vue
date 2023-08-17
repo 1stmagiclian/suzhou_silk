@@ -18,7 +18,7 @@ export default {
   name: 'Map',
   data() {
     return {
-      showMap: false,
+      showMap: true,
       // axios实例对象
       axiosInstance: null,
       // 图表的实例对象
