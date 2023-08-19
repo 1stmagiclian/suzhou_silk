@@ -74,11 +74,11 @@ export default {
     initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.hotRef, this.theme)
       const initOption = {
-        backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
+        backgroundColor: "rgb(189,189,189,0.3)", // Creamy beige background
         animationDurationUpdate: 1800,
         animationEasingUpdate: 'quinticInOut',
         title: {
-          text: '▎苏绣词云分析',
+          text: '▎苏州丝绸纹样词云分析',
           left: 20,
           top: 20,
           textStyle: {
@@ -103,7 +103,7 @@ export default {
               value: 450
             },
             {
-              name: "江山方代",
+              name: "江山万代",
               value: 430
             },
             {

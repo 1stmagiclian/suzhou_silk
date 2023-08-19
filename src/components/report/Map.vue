@@ -98,12 +98,12 @@ export default {
       // 初始化配置项
       const initOption = {
         // backgroundColor:"rgb(22, 21, 34, 0.75)",
-        backgroundColor: "rgb(255, 248, 220,0.9)", // Creamy beige background
+        backgroundColor: "rgb(189,189,189,0.3)", // Creamy beige background
 
 
 
         title: {
-          text: '▎城市分布',
+          text: '▎丝绸之路上的苏州',
           left: 20,
           top: 20,
           textStyle: {

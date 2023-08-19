@@ -5,8 +5,8 @@
     <header class="screen-header">
       <div>
         <!-- <img :src="headerSrc" alt=""> -->
-        <img v-show="theme == 'chalk'" src="~@/assets/images/header_border_dark.png" alt="" />
-        <img v-show="theme != 'chalk'" src="~@/assets/images/header_border_light.png" alt="" />
+        <img v-show="theme == 'chalk'" src="~@/assets/images/header_border_light.png" alt="" />
+        <!-- <img v-show="theme != 'chalk'" src="~@/assets/images/header_border_light.png" alt="" /> -->
       </div>
       <!-- <span class="logo"> <a :style="titleColor" href="http://39.107.97.152:8007/" title="欢迎访问文化计算实验室" target="_blank">欢迎访问文化计算实验室</a> </span> -->
       <span class="title">苏州丝绸可视化平台</span>
@@ -216,8 +216,8 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background-color: #161522;
-  color: #fff;
+  background-color: #EBEBEB;
+  color: #EBEBEB;
   box-sizing: border-box;
 }
 .screen-header {
@@ -225,6 +225,7 @@ export default {
   height: 64px;
   font-size: 20px;
   position: relative;
+  background-color: #EBEBEB;
   > div {
     img {
       width: 100%;
@@ -233,16 +234,18 @@ export default {
   .title {
     position: absolute;
     font-family: serif;
-    color: #fff;
+    color: #6B4226;
     left: 50%;
     top: 50%;
     font-size: 30px;
+    font-weight: bold;
     transform: translate(-50%, -50%);
   }
   .title-right {
     display: flex;
     align-items: center;
     position: absolute;
+    color: #6B4226;
     right: 0px;
     top: 50%;
     transform: translateY(-80%);
@@ -267,7 +270,7 @@ export default {
   }
 }
 .screen-body {
-  background:url("../../images/3.jpg");
+  background:url("../../images/14.jpg");
   // filter:brightness(105%) contrast(110%) opacity(110%);
   background-size:100% 100%;
   width: 100%;
@@ -280,7 +283,7 @@ export default {
     height: 100%;
     width: 33%;
     #right-top {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #535353 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -295,7 +298,7 @@ export default {
       // animation: borderAnimation 10s linear infinite;
     }
     #right-bottom {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #535353 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -313,7 +316,7 @@ export default {
     height: 100%;
     width: 75%;
     #left-top {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #535353 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;
@@ -331,7 +334,7 @@ export default {
 
     }
     #left-bottom {
-      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #aa8d26 100%);
+      border-image-source: radial-gradient(66% 66% at center,transparent 1px, transparent 80%, #535353 100%);
       border-image-slice: 1;
       border-width: 3px;
       border-style: solid;

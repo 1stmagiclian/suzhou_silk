@@ -1,7 +1,7 @@
 const theme = {
   chalk: {
     // 背景颜色
-    backgroundColor: '#161522',
+    backgroundColor: '#EBEBEB',
     // 标题文字颜色
     titleColor: '#FFFFFF',
     // 切换主题按钮的图片路径
