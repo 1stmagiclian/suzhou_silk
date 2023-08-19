@@ -17,7 +17,7 @@
 .left-bar {
   margin-top: 0px;
   float: left;
-  width: 80%;
+  width: 70%;
   height: 100%;
   position: absolute;
   overflow: auto;
@@ -26,17 +26,17 @@
 .right-bar {
   margin-top: 0px;
   float: right;
-  right: 0px;
-  width: 20%;
+  right: 5%;
+  width: 25%;
   height: 100%;
   position: absolute;
   overflow: hidden;
 }
 
 .image-container {
-  margin-top: 50px;
+  margin-top: 0px;
   width: 100%;
-  height: 80%;
+  height: 100%;
   position: absolute;
   overflow: hidden;
 }
