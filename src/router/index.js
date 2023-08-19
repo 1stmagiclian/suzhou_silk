@@ -18,13 +18,19 @@ import MapPage from 'views/MapPage'
 import RankPage from 'views/RankPage'
 import HotPage from 'views/HotPage'
 import StockPage from 'views/StockPage'
+import FullPage from 'views/FullScreenImagePage'
 
 Vue.use(VueRouter)
 
 //路由规则
-const routes = [{
+const routes = [
+  {
     path: '/',
-    redirect: '/home'
+    redirect: '/full'
+  },
+  { 
+    path: '/full', 
+    component: FullPage 
   },
   {
     path: '/home',

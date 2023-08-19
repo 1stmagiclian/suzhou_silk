@@ -1,7 +1,11 @@
 <template>
-  <div class="com-container" @dblclick="chinaMap">
-    <div class="com-chart" ref="mapRef"></div>
-  </div>
+    <div v-if="!showMap" class="start-image-container">
+      <img class="start-image" src="../../assets/images/silk.jpg" />
+      <button class="start-button" @click="enterMap">进入地图</button>
+    </div>
+    <div v-else class="com-container" @dblclick="chinaMap">
+      <div class="com-chart" ref="mapRef"></div>
+    </div>
 </template>
 
 <script>
@@ -9,13 +13,12 @@ import { getProvinceMapInfo } from '@/utils/map_utils'//中文城市名转成拼
 import { mapState } from 'vuex'
 import axios from 'axios'
 
-let img =document.createElement('img')
-img.src=require('@/assets/images/map_bg.png')
 
 export default {
   name: 'Map',
   data() {
     return {
+      showMap: true,
       // axios实例对象
       axiosInstance: null,
       // 图表的实例对象
@@ -45,10 +48,6 @@ export default {
   },
   created() {
     this.getData()
-    // this.axiosInstance = axios.create({
-    //   baseURL: 'http://101.34.160.195:9997',
-    // })
-    // this.$socket.registerCallBack('mapData', this.getData)
   },
 
 
@@ -56,36 +55,24 @@ export default {
   mounted() {
     this.initChart()
     this.getData()
-    // this.$socket.send({
-    //   action: 'getData',
-    //   socketType: 'mapData',
-    //   chartName: 'map',
-    //   value: '',
-    // })
     window.addEventListener('resize', this.screenAdapter)
     // 主动触发 响应式配置
     this.screenAdapter()
   },
   destroyed() {
     window.removeEventListener('resize', this.screenAdapter)
-    // this.$socket.unRegisterCallBack('stockData')
   },
 
 
   methods: {
+    
+    enterMap() {
+      // 初始化地图并设置 showMap 为 true，确保地图容器能够正常渲染
+      this.showMap = true;
+    },
     // 初始化图表的方法
     async initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.mapRef, this.theme)
-      // 获取中国地图的矢量数据： 可以通过发送网络请求获取,static/map/china.json 的数据
-      // 由于配置了基础路径，所以不能直接 this.$http.get 来请求 static下的资源
-
-      // if (!this.chinaMapData) {
-      //   const { data: res } = await this.$http.get('/map/china')
-      //   this.chinaMapData = res
-      // }
-
-
-      //不通过后台获取地图数据的方式就是axios.get
       // const ret = await axios.get('http://39.107.97.152:8077/static/map/china.json')
       const ret = await axios.get('http://localhost:8999/static/map/china.json')
 
@@ -101,7 +88,6 @@ export default {
         backgroundColor: "rgb(189,189,189,0.3)", // Creamy beige background
 
 
-
         title: {
           text: '▎丝绸之路上的苏州',
           left: 20,
@@ -114,78 +100,6 @@ export default {
           },
         },
 
-        
-
-        // geo: {  
-        //   type: 'map',
-        //   map: 'china',
-        //   top: '5%',
-        //   bottom: '5%',
-        //   //允许拖动及缩放
-        //   roam: true,
-
-
-        //   // zoom: 1.1, //默认缩放比例61
-        //   itemStyle: {         
-        //     // normal: {
-        //     //   areaColor: '#01215c',
-        //     //   borderWidth: 2,//设置外层边框
-        //     //   borderColor:'#9ffcff',
-        //     // },
-        //     // areaColor:{
-        //     //   image:img,
-        //     //   repeat:'no-repeat',
-        //     // },
-
-        //     areaColor: {
-        //       type: "radial",
-        //       x: 0.5,
-        //       y: 0.5,
-        //       r: 0.8,
-        //       colorStops: [
-        //         {
-        //           offset: 0,
-        //           color: "rgba(147, 235, 248, 1)", // 0% 处的颜色
-        //         },
-        //         {
-        //           offset: 1,
-        //           color: "rgba(2, 99, 206, 1)", // 100% 处的颜色
-        //         },
-        //       ],
-        //       globalCoord: false, // 缺省为 false
-        //     },
-
-        //     // borderWidth: 1,//设置外层边框
-        //     // borderColor:'#9ffcff',
-        //     // shadowColor: "#9ffcff", // 阴影颜色
-        //     shadowOffsetX: 5, // 阴影水平方向上的偏移距离
-        //     shadowOffsetY: 10, // 阴影垂直方向上的偏移距离
-        //     shadowBlur: 10, // 文字块的背景阴影长度
-
-        //     borderWidth: 1, // 边框大小
-        //     borderColor: "rgba(104, 152, 190, 1)", // 边框样式
-        //     shadowColor: "rgba(128, 217, 248, 1)", // 阴影颜色
-
-        //     emphasis: {
-        //       label: {
-        //         color: "#ffffff",
-        //       },
-        //       itemStyle: {
-        //         areaColor: "#a5d4fe",
-        //       },
-        //     },
-
-
-        //   },
-
-         
-        //   label: {
-        //     show: true,
-        //     color: 'white',
-        //     formatter: `{a}`,
-        //   },
-        // },
-        
         geo: {  
           type: 'map',
           map: 'china',
@@ -429,4 +343,28 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.start-image-container {
+  text-align: center;
+  position: relative; /* 添加相对定位 */
+}
+.start-image {
+  max-width: 85%;
+  height: 0 auto;
+  display: block;
+  margin: 10 auto;
+  margin-left: 50px;
+}
+.start-button {
+  position: absolute; /* 绝对定位 */
+  top: 20%; /* 将按钮垂直居中 */
+  left: 95%; /* 将按钮水平居中 */
+  transform: translate(-50%, -50%); /* 水平和垂直都居中 */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
