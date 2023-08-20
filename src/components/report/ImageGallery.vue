@@ -59,6 +59,7 @@
   
   .image-description {
     margin-top: 5px;
+    font-weight: bold;
     font-size: 14px;
     flex: 1; /* 新增这行来使描述占据剩余空间，避免被遮挡 */
   }
