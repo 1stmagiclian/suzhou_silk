@@ -26,21 +26,27 @@
 .right-bar {
   margin-top: 0px;
   float: right;
-  right: 5%;
-  width: 25%;
+  right: 0%;
+  width: 29%;
   height: 100%;
   position: absolute;
   overflow: hidden;
+  background-color: rgba(189, 189, 189, 0.8); /* 添加背景颜色属性 */
+  border-radius: 20px 20px 0 0; /* 分别设置四个角的圆角 */
 }
 
 .responsive-image {
   margin-top: 10%;
   max-width: 100%; /* 限制最大宽度 */
-  max-height: 90%; /* 限制最大高度 */
+  max-height: 100%; /* 限制最大高度 */
   width: auto; /* 自动调整宽度 */
   height: auto; /* 自动调整高度 */
   object-fit: contain; /* 可根据需要使用不同的适应方式 */
 }
+
+/* .grayback {
+  background-color: "rgb(189,189,189,0.8)"
+} */
 
 </style>
 
@@ -144,7 +150,7 @@ export default {
       this.chartInstance = this.$echarts.init(this.$refs.trendRef, this.theme)
       const initOption = {
 
-        backgroundColor: "rgb(189,189,189,0.3)", // Creamy beige background
+        backgroundColor: "rgb(189,189,189,0.8)", // Creamy beige background
         title: {
           text: '▎苏州丝绸纹样演化史',
           left: 20,

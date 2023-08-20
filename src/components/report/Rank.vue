@@ -164,7 +164,7 @@ export default {
       // }
 
       const initOption = {
-  backgroundColor: "rgb(189,189,189,0.3)", // Creamy beige background
+  backgroundColor: "rgb(189,189,189,0.8)", // Creamy beige background
   animationDurationUpdate: 1500,
   animationEasingUpdate: 'quinticInOut',
   title: {
