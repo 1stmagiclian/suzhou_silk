@@ -230,7 +230,7 @@ export default {
                       return "#34495E";
                     }
                     else if(params.value >=400 && params.value<450 ){
-                      return "#BDC3C7";
+                      return "#00BCD4";
                     }
                       else if(params.value >=450 && params.value<500 ){
                       return "#2980B9";
