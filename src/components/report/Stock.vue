@@ -58,8 +58,8 @@ import ImageGallery from '../report/ImageGallery.vue'
             ],
             currentPage: 1,
             perPage: 10, 
-            searchPlatformVideoUrl: require('../../assets/vedio/test.mp4'),
-            annotationPlatformVideoUrl: require('../../assets/vedio/test.mp4'),
+            searchPlatformVideoUrl: require('../../assets/vedio/search.mp4'),
+            annotationPlatformVideoUrl: require('../../assets/vedio/annotation.mp4'),
         };
     },
     computed: {
