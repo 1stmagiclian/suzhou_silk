@@ -5,7 +5,7 @@
     </div>
     <div class="right-bar">
       <div class="image-container" v-if="currentImage" :style="imageContainerStyle">
-          <img :src="currentImage" alt="Current Image" :style="imageStyle">
+          <img :src="currentImage" alt="Current Image" class="responsive-image">
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
   margin-top: 0px;
   float: left;
   width: 70%;
-  height: 100%;
+  height: 115%;
   position: absolute;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .right-bar {
@@ -33,21 +33,15 @@
   overflow: hidden;
 }
 
-.image-container {
-  margin-top: 0px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
+.responsive-image {
+  margin-top: 10%;
+  max-width: 100%; /* 限制最大宽度 */
+  max-height: 90%; /* 限制最大高度 */
+  width: auto; /* 自动调整宽度 */
+  height: auto; /* 自动调整高度 */
+  object-fit: contain; /* 可根据需要使用不同的适应方式 */
 }
 
-/* 使用 object-fit 和 object-position 控制图像 */
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 保持宽高比，完全显示图像 */
-  object-position: center; /* 控制图像在容器内的水平位置 */
-}
 </style>
 
 <script>
@@ -140,13 +134,13 @@ export default {
     },
     // 初始化图表的方法
     initChart() { 
-      var node1={name:'鹿纹',time:'东周'}
-      var node2={name:'舞人动物纹锦',time:'战国'}
-      var node3={name:'五星锦',time:'汉晋'}
-      var node4={name:'花鸟纹锦',time:'唐'}
-      var node5={name:'团龙团凤纹宋锦',time:'宋'}
-      var node6={name:'孔雀纹补',time:'明'}
-      var node7={name:'石青缂织衮织成',time:'清'}
+      var node1={name:'鹿纹',label:'鹿纹(狩猎纹锦，东周复制件)'}
+      var node2={name:'舞人动物纹锦',label:'舞人动物纹锦(战国复制件)'}
+      var node3={name:'五星锦',label:'五星锦(汉晋复制件)'}
+      var node4={name:'花鸟纹锦',label:'花鸟纹锦(唐代复制件)'}
+      var node5={name:'团龙团凤纹宋锦',label:'团龙团凤纹宋锦(清代复制件)'}
+      var node6={name:'孔雀纹补',label:'孔雀纹补(明代)'}
+      var node7={name:'石青缂织衮织成',label:'石青缂织衮织成(清)'}
       this.chartInstance = this.$echarts.init(this.$refs.trendRef, this.theme)
       const initOption = {
 
@@ -184,7 +178,7 @@ export default {
                 name: node1.name,
                 tooltip: {
                   show: true,
-                  formatter: node1.time, // 在这里设置字符串信息
+                  formatter: node1.label, // 在这里设置字符串信息
                 },
                 // value:node1.value,
                 x: 0,
@@ -194,7 +188,7 @@ export default {
                 name: node2.name,
                 tooltip: {
                   show: true,
-                  formatter: node2.time, // 在这里设置字符串信息
+                  formatter: node2.label, // 在这里设置字符串信息
                 },
                 x: 5,
                 y: 3
@@ -203,7 +197,7 @@ export default {
                 name: node3.name,
                 tooltip: {
                   show: true,
-                  formatter: node3.time, // 在这里设置字符串信息
+                  formatter: node3.label, // 在这里设置字符串信息
                 },
                 x: 10,
                 y: 0
@@ -212,7 +206,7 @@ export default {
                 name: node4.name,
                 tooltip: {
                   show: true,
-                  formatter: node4.time, // 在这里设置字符串信息
+                  formatter: node4.label, // 在这里设置字符串信息
                 },
                 x: 15,
                 y: 3
@@ -221,7 +215,7 @@ export default {
                 name: node5.name,
                 tooltip: {
                   show: true,
-                  formatter: node5.time, // 在这里设置字符串信息
+                  formatter: node5.label, // 在这里设置字符串信息
                 },
                 x: 20,
                 y: 0
@@ -230,7 +224,7 @@ export default {
                 name: node6.name,
                 tooltip: {
                   show: true,
-                  formatter: node6.time, // 在这里设置字符串信息
+                  formatter: node6.label, // 在这里设置字符串信息
                 },
                 x: 25,
                 y: 3
@@ -239,7 +233,7 @@ export default {
                 name: node7.name,
                 tooltip: {
                   show: true,
-                  formatter: node7.time, // 在这里设置字符串信息
+                  formatter: node7.label, // 在这里设置字符串信息
                 },
                 x: 30,
                 y: 0
