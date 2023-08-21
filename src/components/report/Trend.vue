@@ -58,7 +58,7 @@ export default {
   name: 'Trend',
   data() {
     return {
-      currentImage: 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+      currentImage: 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
     }
   },
   created() {
@@ -150,7 +150,7 @@ export default {
 
         backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
         title: {
-          text: '▎苏州丝绸纹样演化史',
+          text: '▎苏州丝绸纹样演化史——动物纹',
           left: 20,
           top: 20,
           textStyle: {
@@ -285,13 +285,21 @@ export default {
       this.chartInstance.on('mouseover', (params) => {
         const name = params.data.name
         // console.log(name)
-        var currentImage1= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
-        var currentImage2= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E8%88%9E%E4%BA%BA%E5%8A%A8%E7%89%A9%E7%BA%B9%E9%94%A6%28%E6%88%98%E5%9B%BD%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
-        var currentImage3= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E4%BA%94%E6%98%9F%E9%94%A6%28%E6%B1%89%E6%99%8B%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
-        var currentImage4= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E8%8A%B1%E9%B8%9F%E7%BA%B9%E9%94%A6%28%E5%94%90%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
-        var currentImage5= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E5%9B%A2%E9%BE%99%E5%9B%A2%E5%87%A4%E7%BA%B9%E5%AE%8B%E9%94%A6%28%E6%B8%85%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.JPG'
-        var currentImage6= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E5%AD%94%E9%9B%80%E7%BA%B9%E8%A1%A5%28%E6%98%8E%E4%BB%A3%29.png'
-        var currentImage7= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E7%9F%B3%E9%9D%92%E7%BC%82%E7%BB%87%E8%A1%AE%E7%BB%87%E6%88%90%28%E6%B8%85%29.png'
+        var currentImage1= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        var currentImage2= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E8%88%9E%E4%BA%BA%E5%8A%A8%E7%89%A9%E7%BA%B9%E9%94%A6%28%E6%88%98%E5%9B%BD%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        var currentImage3= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E4%BA%94%E6%98%9F%E9%94%A6%28%E6%B1%89%E6%99%8B%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        var currentImage4= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E8%8A%B1%E9%B8%9F%E7%BA%B9%E9%94%A6%28%E5%94%90%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        var currentImage5= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E5%9B%A2%E9%BE%99%E5%9B%A2%E5%87%A4%E7%BA%B9%E5%AE%8B%E9%94%A6%28%E6%B8%85%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.JPG'
+        var currentImage6= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E5%AD%94%E9%9B%80%E7%BA%B9%E8%A1%A5%28%E6%98%8E%E4%BB%A3%29.png'
+        var currentImage7= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B91/%E7%9F%B3%E9%9D%92%E7%BC%82%E7%BB%87%E8%A1%AE%E7%BB%87%E6%88%90%28%E6%B8%85%29.png'
+        
+        // var currentImage1= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        // var currentImage2= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E8%88%9E%E4%BA%BA%E5%8A%A8%E7%89%A9%E7%BA%B9%E9%94%A6%28%E6%88%98%E5%9B%BD%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        // var currentImage3= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E4%BA%94%E6%98%9F%E9%94%A6%28%E6%B1%89%E6%99%8B%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        // var currentImage4= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E8%8A%B1%E9%B8%9F%E7%BA%B9%E9%94%A6%28%E5%94%90%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
+        // var currentImage5= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E5%9B%A2%E9%BE%99%E5%9B%A2%E5%87%A4%E7%BA%B9%E5%AE%8B%E9%94%A6%28%E6%B8%85%E4%BB%A3%E5%A4%8D%E5%88%B6%E4%BB%B6%29.JPG'
+        // var currentImage6= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E5%AD%94%E9%9B%80%E7%BA%B9%E8%A1%A5%28%E6%98%8E%E4%BB%A3%29.png'
+        // var currentImage7= 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E7%9F%B3%E9%9D%92%E7%BC%82%E7%BB%87%E8%A1%AE%E7%BB%87%E6%88%90%28%E6%B8%85%29.png'
         if (params.data && params.name === node1.name) {this.currentImage = currentImage1;this.hoveredPatternPosition = { x: 0, y: 0 };}
         if (params.data && params.name === node2.name) {this.currentImage = currentImage2;this.hoveredPatternPosition = { x: 0, y: 0 };}
         if (params.data && params.name === node3.name) {this.currentImage = currentImage3;this.hoveredPatternPosition = { x: 0, y: 0 };}
