@@ -25,8 +25,8 @@
         
         <div id="left-top" :class="{ fullscreen: fullScreenStatus.Full }">
           <!-- 商家分布图表 -->
-          <!-- <Full ref="full"></Full>
-          <div class="resize">
+          <Full ref="full"></Full>
+          <!-- <div class="resize">
             <span @click="changeSize('full')" :class="['iconfont', fullScreenStatus.map ? 'icon-compress-alt' : 
             'icon-expand-alt']"></span>
           </div> -->
