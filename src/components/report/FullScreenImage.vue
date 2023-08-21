@@ -4,7 +4,7 @@
       <img :src="currentImage" alt="Dynamic Image" v-if="showImage" />
     </transition>
     <transition name="fade-slide">
-      <button @click="showVisualization" class="custom-button" v-if="showImage">苏州丝绸纹样可视化平台</button>
+      <button @click="showVisualization" class="custom-button" v-if="showImage">苏州</button>
     </transition>
   </div>
 </template>
@@ -37,8 +37,9 @@ export default {
 
 <style scoped>
 .fullscreen-image {
-  width: 70vw;
-  height: 56vh;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
@@ -63,21 +64,22 @@ export default {
 }
 
 .fullscreen-image img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 .custom-button {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 28%;
+  right: 10%;
   /* background-color: transparent; */
   border: 2px solid #A08E7C;
   color: #A08E7C;
-  padding: 10px 20px;
+  /* padding: 1px 2px; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 8px;
   border-radius: 5px;
   cursor: pointer;
   transition: color 0.3s, border-color 0.3s;
