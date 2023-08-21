@@ -28,7 +28,7 @@ export default {
     showVisualization() {
       this.showImage = false;
       setTimeout(() => {
-        this.$router.push('/home');
+        this.$router.push('/show/%22%E8%8B%8F%E5%B7%9E%22');
       }, 1000);
     }
   }
@@ -37,12 +37,12 @@ export default {
 
 <style scoped>
 .fullscreen-image {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
+  width: 70vw;
+  height: 56vh;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: black; */
 }
 
 .fade-enter-active, .fade-leave-active {

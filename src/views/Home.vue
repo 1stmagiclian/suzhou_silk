@@ -23,11 +23,11 @@
     <div class="screen-body">    
       <section class="screen-left">
         
-        <div id="left-top" :class="{ fullscreen: fullScreenStatus.map }">
+        <div id="left-top" :class="{ fullscreen: fullScreenStatus.Full }">
           <!-- 商家分布图表 -->
-          <single-map ref="map"></single-map>
+          <Full ref="full"></Full>
           <div class="resize">
-            <span @click="changeSize('map')" :class="['iconfont', fullScreenStatus.map ? 'icon-compress-alt' : 
+            <span @click="changeSize('full')" :class="['iconfont', fullScreenStatus.map ? 'icon-compress-alt' : 
             'icon-expand-alt']"></span>
           </div>
         </div>
@@ -72,6 +72,7 @@ import Rank from '@/components/report/Rank.vue'
 import Seller from '@/components/report/Seller.vue'
 import Stock from '@/components/report/Stock.vue'
 import Trend from '@/components/report/Trend.vue'
+import Full from '@/components/report/FullScreenImage.vue'
 
 import { mapState } from 'vuex'
 // 导入自己定义的主题工具函数 用于返回不同主题下的配置对象
@@ -88,6 +89,7 @@ export default {
     Seller,
     Stock,
     Trend,
+    Full,
   },
   data() {
     return {
@@ -99,6 +101,7 @@ export default {
         rank: false,
         hot: false,
         stock: false,
+        Full:false,
       },
       // 当前的系统时间
       systemDateTime: null,
