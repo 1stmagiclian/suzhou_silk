@@ -69,181 +69,77 @@ export default {
     // 初始化图表的方法
     initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.stockRef, this.theme)
-      // const initOption = {
-      //   backgroundColor:"rgb(22, 21, 34, 0.75)",
-
-      //   title: {
-      //     text: '▎丝绸颜色雷达图',
-      //     left: 20,
-      //     top: 20,
-      //     textStyle: {
-      //       color: '#fff',
-      //       fontFamily: 'serif',
-      //       fontSize: 23,
-      //     },
-      //   },
-
-              
-      //   radar: {
-      //     // shape: 'circle',
-      //     indicator: [
-      //       { name: '水墨青', max: 1 },
-      //       { name: '浅碧绿', max: 1 },
-      //       { name: '紫罗兰', max: 1 },
-      //       { name: '古朴紫', max: 1 },
-      //       { name: '砚墨灰', max: 1 },
-      //       { name: '秋叶橙', max: 1 },
-      //       { name: '宫廷红', max: 1 },
-      //       { name: '清雅蓝', max: 1 },
-      //     ],
-        
-      //     //雷达图背景的颜色，在这儿随便设置了一个颜色，完全不透明度为0，就实现了透明背景
-
-      //     axisLine: { //指向外圈文本的分隔线样式
-      //       lineStyle: {
-      //           // color: '#013A3F'
-      //           width:0.1
-      //       }
-      //     },
-      //     splitArea: {
-      //         show: false,
-      //         areaStyle: {
-      //             color: "rgba(255,0,0,0)", // 图表背景的颜色
-      //         },
-      //     },
-      //     splitLine: {
-      //         show: true,
-      //         lineStyle: {
-      //             width: 1,  // 分隔线线宽
-      //             color: "#47EDFC", // 设置网格的颜色【分隔线颜色】
-      //         },
-      //     },
-
-
-      // },
-
-      //   //todo：格式化输出样式
-      //   tooltip: {
-      //     show: true,
-      //     trigger:'item',
-      //     position: ['75%','18%'],
-      //     // backgroundColor:"#",
-      //     textStyle:{
-      //       // align:'left'
-      //     },
-      //     formatter:(params) => {  // params就是数据，这里可以打印一下看看
-      //         // return 出去什么，鼠标移入就显示什么,marker就是提示前面蓝色的圆点
-      //         return `城市名：&#8194&#8194&#8194${params.data['name']}&#8194&#8194&#8194</br>
-      //                 ${params.marker}水墨青: ${params.data['value'][0]} </br></br>
-      //                 ${params.marker}浅碧绿: ${params.data['value'][1]} </br></br>
-      //                 ${params.marker}紫罗兰: ${params.data['value'][2]} </br></br>
-      //                 ${params.marker}古朴紫: ${params.data['value'][3]} </br></br>
-      //                 ${params.marker}砚墨灰: ${params.data['value'][4]} </br></br>
-      //                 ${params.marker}秋叶橙: ${params.data['value'][5]} </br></br>
-      //                 ${params.marker}宫廷红: ${params.data['value'][6]} </br></br>
-      //                 ${params.marker}清雅蓝: ${params.data['value'][7]} </br></br>
-      //                 `
-      //         }
-      //   },
-
-      //   //雷达图数据样式图
-      //   series:[
-      //     {
-      //       type:'radar',
-      //       areaStyle: {
-      //         color: "rgba(71,237,252,.3)" 
-      //       },
-      //       lineStyle: {
-      //         color: "#47EDFC",
-      //         // 阴影折线宽度
-      //         width: 5
-      //       },
-      //     }
-      //   ]
-        
-      // }
-
+     
       const initOption = {
-  backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
-  animationDurationUpdate: 1500,
-  animationEasingUpdate: 'quinticInOut',
-  title: {
-    text: '▎苏州丝绸纹样雷达图', // Adjusted title
-    left: 20,
-    top: 20,
-    textStyle: {
-      color: '#6B4226', // Dark brown text color
-      fontFamily: 'serif',
-      fontSize: 28, // Slightly larger font size
-    },
-  },
+        backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        title: {
+          text: '▎苏州丝绸纹样雷达图', // Adjusted title
+          left: 20,
+          top: 20,
+          textStyle: {
+            color: '#6B4226', // Dark brown text color
+            fontFamily: 'serif',
+            fontSize: 18, // Slightly larger font size
+          },
+        },
 
-  radar: {
-    // shape: 'circle',
-    indicator: [
-      { name: '水墨青', max: 1 },
-      { name: '浅碧绿', max: 1 },
-      { name: '紫罗兰', max: 1 },
-      { name: '古朴紫', max: 1 },
-      { name: '砚墨灰', max: 1 },
-      { name: '秋叶橙', max: 1 },
-      { name: '宫廷红', max: 1 },
-      { name: '清雅蓝', max: 1 },
-    ],
+        radar: {
+          shape: 'circle',
+          indicator: [
+            { name: '水墨青', max: 1, color: '#405860', axisLine:{lineStyle:{color:'#405860',width: 2.5}}},
+            { name: '浅碧绿', max: 1, color: '#90EE90', axisLine:{lineStyle:{color:'#90EE90',width: 2.5}}},
+            { name: '紫罗兰', max: 1, color: '#8A2BE2', axisLine:{lineStyle:{color:'#8A2BE2',width: 2.5}}},
+            { name: '古朴紫', max: 1, color: '#800080', axisLine:{lineStyle:{color:'#800080',width: 2.5}}},
+            { name: '秋叶橙', max: 1, color: '#FFA500', axisLine:{lineStyle:{color:'#FFA500',width: 2.5}}},
+            { name: '宫廷红', max: 1, color: '#800000', axisLine:{lineStyle:{color:'#800000',width: 2.5}}},
+            { name: '砚墨灰', max: 1, color: '#808080', axisLine:{lineStyle:{color:'#808080',width: 2.5}}},
+            { name: '清雅蓝', max: 1, color: '#87CEEB', axisLine:{lineStyle:{color:'#87CEEB',width: 2.5}}},
+          ],
 
-    axisLine: {
-      lineStyle: {
-        width: 0.5, // Slightly thicker axis lines
-        color: '#6B4226', // Dark brown axis line color
-      },
-    },
-    splitArea: {
-      show: false,
-      areaStyle: {
-        color: "rgba(255,0,0,0)",
-      },
-    },
-    splitLine: {
-      show: true,
-      lineStyle: {
-        width: 1,
-        color: "#6B4226", // Dark brown grid lines
-      },
-    },
-  },
+          // splitArea: {
+          //   show: false,
+          //   areaStyle: {
+          //     color: "black",
+          //   },
+          // },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              width: 1,
+              color: ['#aaa', '#ddd'],// Dark brown grid lines
+            },
+          },
+        },
 
-  tooltip: {
-    show: true,
-    trigger: 'item',
-    position: ['75%', '18%'],
-    textStyle: {},
-    formatter: (params) => {
-      return `城市名：&#8194&#8194&#8194${params.data['name']}&#8194&#8194&#8194</br>
-              ${params.marker}水墨青: ${params.data['value'][0]} </br></br>
-              ${params.marker}浅碧绿: ${params.data['value'][1]} </br></br>
-              ${params.marker}紫罗兰: ${params.data['value'][2]} </br></br>
-              ${params.marker}古朴紫: ${params.data['value'][3]} </br></br>
-              ${params.marker}砚墨灰: ${params.data['value'][4]} </br></br>
-              ${params.marker}秋叶橙: ${params.data['value'][5]} </br></br>
-              ${params.marker}宫廷红: ${params.data['value'][6]} </br></br>
-              ${params.marker}清雅蓝: ${params.data['value'][7]} </br></br>
-              `
-    }
-  },
+        tooltip: {
+          show: true,
+          trigger: 'item',
+          position: ['75%', '18%'],
+          // textStyle: {
+          //   fontSize:6
+          // },
+          formatter: (params) => {
+            const colorBlock = (color) => `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:${color};"></span>`;
+            const data = params.data.value.map((val, index) => `${colorBlock(initOption.radar.indicator[index].color)}${initOption.radar.indicator[index].name}: ${val}&nbsp;&nbsp;&nbsp`).join('<br/><br/>');
+            return `城市名：&nbsp;&nbsp;&nbsp;${params.data.name}<br/>${data}`;
+          }
+        },
 
-  series: [
-    {
-      type: 'radar',
-      areaStyle: {
-        color: "rgba(107, 66, 38, 0.3)", // Light brown area color
-      },
-      lineStyle: {
-        color: "#6B4226", // Dark brown line color
-        width: 3, // Slightly thinner line
-      },
-    }
-  ]
-};
+        series: [
+          {
+            type: 'radar',
+            areaStyle: {
+              color: "rgba(107, 66, 38, 0.3)", // Light brown area color
+            },
+            lineStyle: {
+              color: "#6B4226", // Dark brown line color
+              width: 3, // Slightly thinner line
+            },
+          }
+        ]
+      };
 
       this.chartInstance.setOption(initOption)
 
@@ -252,7 +148,6 @@ export default {
       })
       this.chartInstance.on('mouseout', this.startInterval)
     },
-
 
 
     // 发送请求，获取数据
@@ -305,6 +200,11 @@ export default {
         title: {
           textStyle: {
             fontSize: titleFontSize,
+          },
+        },
+        tooltip: {
+          textStyle: {
+            fontSize:titleFontSize*0.4
           },
         },
         series: [

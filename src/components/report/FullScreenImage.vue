@@ -29,7 +29,7 @@ export default {
       this.showImage = false;
       setTimeout(() => {
         this.$router.push('/show/%22%E8%8B%8F%E5%B7%9E%22');
-      }, 1000);
+      }, 0);
     }
   }
 };
