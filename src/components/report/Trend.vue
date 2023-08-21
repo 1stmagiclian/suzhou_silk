@@ -31,7 +31,7 @@
   height: 100%;
   /* position: absolute; */
   overflow: hidden;
-  background-color: rgb(235,235,215,0.5); /* 添加背景颜色属性 */
+  background-color: rgb(235,235,215,0.8); /* 添加背景颜色属性 */
 }
 
 .responsive-image {
@@ -148,7 +148,7 @@ export default {
       this.chartInstance = this.$echarts.init(this.$refs.trendRef, this.theme)
       const initOption = {
 
-        backgroundColor: "rgb(235,235,215,0.5)", // Creamy beige background
+        backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
         title: {
           text: '▎苏州丝绸纹样演化史',
           left: 20,

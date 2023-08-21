@@ -74,7 +74,7 @@ export default {
     initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.hotRef, this.theme)
       const initOption = {
-        backgroundColor: "rgb(235,235,215,0.5)", // Creamy beige background
+        backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
         animationDurationUpdate: 1800,
         animationEasingUpdate: 'quinticInOut',
         title: {

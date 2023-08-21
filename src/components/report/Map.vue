@@ -85,7 +85,7 @@ export default {
       // 初始化配置项
       const initOption = {
         // backgroundColor:"rgb(22, 21, 34, 0.75)",
-        backgroundColor: "rgb(235,235,215,0.5)", // Creamy beige background
+        backgroundColor: "rgb(235,235,215,0.8)", // Creamy beige background
 
 
         title: {
