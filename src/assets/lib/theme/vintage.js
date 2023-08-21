@@ -471,7 +471,7 @@
             },
             "checkpointStyle": {
                 "color": "#e43c59",
-                "borderColor": "rgba(194,53,49,0.5)"
+                "borderColor": "rgba(194,53,49,0.8)"
             },
             "label": {
                 "normal": {

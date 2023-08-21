@@ -4,9 +4,9 @@
         <div class="com-chart" ref="trendRef"></div>
     </div>
     <div class="right-bar">
-      <div class="image-container" v-if="currentImage" :style="imageContainerStyle">
+      <!-- <div class="image-container" v-if="currentImage" :style="imageContainerStyle"> -->
           <img :src="currentImage" alt="Current Image" class="responsive-image">
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -24,24 +24,22 @@
 }
 
 .right-bar {
-  margin-top: 0px;
+  /* margin-top: 0px; */
   float: right;
   right: 0%;
-  width: 29%;
+  width: 30%;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
   overflow: hidden;
-  background-color: rgba(189, 189, 189, 0.8); /* 添加背景颜色属性 */
-  border-radius: 20px 20px 0 0; /* 分别设置四个角的圆角 */
+  background-color: rgb(235,235,215,0.5); /* 添加背景颜色属性 */
 }
 
 .responsive-image {
-  margin-top: 10%;
-  max-width: 100%; /* 限制最大宽度 */
-  max-height: 100%; /* 限制最大高度 */
-  width: auto; /* 自动调整宽度 */
-  height: auto; /* 自动调整高度 */
-  object-fit: contain; /* 可根据需要使用不同的适应方式 */
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+  object-fit: contain;
 }
 
 /* .grayback {
@@ -60,7 +58,7 @@ export default {
   name: 'Trend',
   data() {
     return {
-      currentImage: null
+      currentImage: 'http://39.107.97.152:9016/silk_picture/%E5%8A%A8%E7%89%A9%E7%BA%B9/%E9%B9%BF%E7%BA%B9%28%E7%8B%A9%E7%8C%8E%E7%BA%B9%E9%94%A6%EF%BC%8C%E4%B8%9C%E5%91%A8%E5%A4%8D%E5%88%B6%E4%BB%B6%29.png'
     }
   },
   created() {
@@ -74,9 +72,9 @@ export default {
     //展示2020年份
     imageContainerStyle() {
       return {
-        position: 'absolute',
-        top: `${this.hoveredPatternPosition.y}px`,
-        left: `${this.hoveredPatternPosition.x}px` // 可根据需要调整偏移量
+        // position: 'absolute',
+        // top: `${this.hoveredPatternPosition.y}px`,
+        // left: `${this.hoveredPatternPosition.x}px` // 可根据需要调整偏移量
       }
     },
     imageStyle() {
@@ -150,7 +148,7 @@ export default {
       this.chartInstance = this.$echarts.init(this.$refs.trendRef, this.theme)
       const initOption = {
 
-        backgroundColor: "rgb(189,189,189,0.8)", // Creamy beige background
+        backgroundColor: "rgb(235,235,215,0.5)", // Creamy beige background
         title: {
           text: '▎苏州丝绸纹样演化史',
           left: 20,

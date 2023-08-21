@@ -74,7 +74,7 @@ export default {
     initChart() {
       this.chartInstance = this.$echarts.init(this.$refs.hotRef, this.theme)
       const initOption = {
-        backgroundColor: "rgb(189,189,189,0.8)", // Creamy beige background
+        backgroundColor: "rgb(235,235,215,0.5)", // Creamy beige background
         animationDurationUpdate: 1800,
         animationEasingUpdate: 'quinticInOut',
         title: {
@@ -221,21 +221,21 @@ export default {
                 //     ')';
                 // }
                 color:function(params){
-                    if(params.value >=250 && params.value <300){
-                      return "#a304d3";
-                    }else if(params.value >=300 && params.value<350 ){
-                      return "#8E44AD";
-                    }
-                    else if(params.value >=350 && params.value<400 ){
-                      return "#34495E";
-                    }
-                    else if(params.value >=400 && params.value<450 ){
-                      return "#00BCD4";
-                    }
-                      else if(params.value >=450 && params.value<500 ){
-                      return "#2980B9";
-                    }
-                    return "#2004d3";
+                    // if(params.value >=250 && params.value <300){
+                    //   return "#a304d3";
+                    // }else if(params.value >=300 && params.value<350 ){
+                    //   return "#8E44AD";
+                    // }
+                    // else if(params.value >=350 && params.value<400 ){
+                    //   return "#34495E";
+                    // }
+                    // else if(params.value >=400 && params.value<450 ){
+                    //   return "#00BCD4";
+                    // }
+                    //   else if(params.value >=450 && params.value<500 ){
+                    //   return "#2980B9";
+                    // }
+                    return "#558AC6";
                   }
               }
             },

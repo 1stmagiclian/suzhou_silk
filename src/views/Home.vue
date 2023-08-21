@@ -9,7 +9,7 @@
         <!-- <img v-show="theme != 'chalk'" src="~@/assets/images/header_border_light.png" alt="" /> -->
       </div>
       <!-- <span class="logo"> <a :style="titleColor" href="http://39.107.97.152:8007/" title="欢迎访问文化计算实验室" target="_blank">欢迎访问文化计算实验室</a> </span> -->
-      <span class="title">苏州丝绸可视化平台</span>
+      <span class="title">苏州丝绸纹样可视化平台</span>
       <div class="title-right">
         <!-- <img :src="themeSrc" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题"> -->
         <!-- <img v-show="theme == 'chalk'" src="~@/assets/images/qiehuan_dark.png" class="qiehuan" @click="handleChangeTheme" alt="切换主题" title="切换主题" />
@@ -35,10 +35,10 @@
         <div id="left-bottom" :class="{ fullscreen: fullScreenStatus.trend }">
           <!-- 商家分布图表 -->
           <Trend ref="trend"></Trend>
-          <div class="resize">
+          <!-- <div class="resize">
             <span @click="changeSize('trend')" :class="['iconfont', fullScreenStatus.trend ? 'icon-compress-alt' : 
             'icon-expand-alt']"></span>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -216,8 +216,8 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background-color: #EBEBEB;
-  color: #EBEBEB;
+  background-color: #EBEBD7;
+  color: #EBEBD7;
   box-sizing: border-box;
 }
 .screen-header {
@@ -225,7 +225,7 @@ export default {
   height: 64px;
   font-size: 20px;
   position: relative;
-  background-color: #EBEBEB;
+  background-color: #EBEBD7;
   > div {
     img {
       width: 100%;
@@ -270,7 +270,7 @@ export default {
   }
 }
 .screen-body {
-  background:url("../../images/14.jpg");
+  background:url("../../images/17.png");
   // filter:brightness(105%) contrast(110%) opacity(110%);
   background-size:100% 100%;
   width: 100%;
